@@ -2410,34 +2410,34 @@ let makeElement = function(tagName, className, text, picture, alt) {//униве
 // }
 
 // тултип
-// const displayTooltip = (e) => {
-//   const trigger = e.target;
-//   const tooltip = trigger.querySelector("[role=tooltip]");
+const displayTooltip = (e) => {
+  const trigger = e.target;
+  const tooltip = trigger.querySelector("[role=tooltip]");
   
 
-//   const { x, y, width, height } = trigger.getBoundingClientRect();
-//   tooltip.style.left = `${Math.floor(x + width / 2)}px`;
-//   tooltip.style.top = `${Math.floor(y + height)}px`;
-//   tooltip.classList.add("active");
-// };
+  const { x, y, width, height } = trigger.getBoundingClientRect();
+  tooltip.style.left = `${Math.floor(x + width / 2)}px`;
+  tooltip.style.top = `${Math.floor(y + height)}px`;
+  tooltip.classList.add("active");
+};
 
-// const hideTooltip = (e) => {
-//   const tooltip = e.target.querySelector("[role=tooltip]");
-//   tooltip.classList.remove("active");
-// };
+const hideTooltip = (e) => {
+  const tooltip = e.target.querySelector("[role=tooltip]");
+  tooltip.classList.remove("active");
+};
 
-// const tooltips = document.querySelectorAll("[data-tooltip]");
-// tooltips.forEach((trigger) => {
-//   let tooltip = document.createElement("div");
+const tooltips = document.querySelectorAll("[data-tooltip]");
+tooltips.forEach((trigger) => {
+  let tooltip = document.createElement("div");
 
-//   tooltip.setAttribute("role", "tooltip");
-//   tooltip.setAttribute("inert", true);
-//   tooltip.textContent = trigger.dataset.tooltip;
+  tooltip.setAttribute("role", "tooltip");
+  tooltip.setAttribute("inert", true);
+  tooltip.textContent = trigger.dataset.tooltip;
 
-//   trigger.appendChild(tooltip);
-//   trigger.addEventListener("mouseenter", displayTooltip);
-//   trigger.addEventListener("mouseleave", hideTooltip);
-// });
+  trigger.appendChild(tooltip);
+  trigger.addEventListener("mouseenter", displayTooltip);
+  trigger.addEventListener("mouseleave", hideTooltip);
+});
 
 // var a = document.getElementById('test1');
 
