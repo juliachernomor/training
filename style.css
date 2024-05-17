@@ -1,0 +1,82 @@
+#test {
+  color: black;
+}
+
+a {
+  color: black;
+}
+
+main {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5rem;
+  font-size: 16px;
+  padding: 5%;
+  color:black;
+}
+
+input {
+  margin-bottom: 25px;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+span {
+  background:  linear-gradient(151deg, #ed0233 0%, #003eb7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color:#ed0233;
+}
+
+[data-tooltip] {
+  text-decoration: underline;
+}
+
+[role="tooltip"] {
+  width: auto;
+  max-width: 20%;
+  height: auto;
+  min-height: 25px;
+  line-height: 25px;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px 15px;
+  position: absolute;
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+[role="tooltip"].active {
+  opacity: 1;
+  transition: opacity 0.1s;
+}
+
+[role="tooltip"]::before {
+  content: "";
+  position: absolute;
+  margin-top: -20px;
+  transform: translateX(-50%);
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.7);
+}
+
+.pool {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+}

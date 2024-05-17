@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+    <div id="welcome">Акробат</div>
+    <div id="test">
+        <form class="form" action="https://echo.htmlacademy.ru" method="post">
+        <input id="test1">
+        <p id="test2"></p>
+        <textarea  id="test3" minlength ="5" maxlength="300"></textarea>
+        <span class="text-counter">Использовано <output class="char-counter">0</output>/300 символов
+        </span>
+        <button class="textarea-button" type="submit">Отправить</button>
+        <a  href="#">При прослушивании данный элемент будет <span data-tooltip="Hello blue!">синим</span>.</a>
+        
+
+            <a  href="#"> a этот - <span data-tooltip="Hello orange!">оранжевый</span></a>
+            <input type="checkbox" name="someCheckbox" value="1" checked>
+            <input type="checkbox" name="someCheckbox" value="2">
+        </form>
+    </div>
+    <h2>Продукты</h2>
+    <ul class="products">
+        <li class="product" id="elementId1" data-food1="1541" data-episode1="1">Дарт Мол</li>
+        <li class="product" id="elementId2" data-food2="9434" data-episode2="4">Дарт Вейдер</li>
+        <li class="product" id="elementId3" data-food3="5549" data-episode3="4">Дарт Сидиус</li>
+    </ul>
+    <button type="button" class="p-forward">Вперед</button>
+    <button type="button" class="p-back">Назад</button>
+    <div class="pool"></div>
+    <button type="button" class="forward">Вперед</button>
+    <button type="button" class="back">Назад</button>
+
+    <template id="pool-template">
+        <div class="div-pool">
+            <p></p>
+        </div>
+    </template>
+
+    <template id="template">
+        <p class="p-template"></p>
+    </template>
+  </main>
+    <script src="app.js" type="module"></script>
+</body>
+</html>
