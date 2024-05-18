@@ -2552,7 +2552,15 @@ commentField.addEventListener('input', function(){
   })
 
   //слайдер посредством 
-  const products = document.querySelector('.products')
+  const products = document.querySelector('.products');
+  //живая коллекция
+  // const liveProducts = products.children;
+  // liveProducts[0].remove();//один удалили
+  // console.log(liveProducts)//2
+//неживая коллекция
+  // const liveProducts = products.querySelectorAll('.product');
+  // liveProducts[0].remove();//один удалили
+  // console.log(liveProducts)//3 без изменений
   const pForward = document.querySelector('.p-forward')
   const pBack = document.querySelector('.p-back')
   pForward.addEventListener('click', function(){
@@ -2573,3 +2581,37 @@ function resize() {
     el.style.cssText = 'height:' + el.scrollHeight + 'px';
   }, 1);
 }
+
+// const x={
+//   a:1,
+//   b:2
+// };
+// console.dir(x)
+
+const pools = document.querySelectorAll('.pools');
+const nextPool = document.querySelector('.next-pool');
+const backPool = document.querySelector('.back-pool');
+let elements1 = pools[0].children;
+let elements2 = pools[1].children;
+
+nextPool.addEventListener('click', function(){
+  if (elements1[0] !== undefined) {
+    nextPool.disabled = false;
+    backPool.disabled = false;
+  pools[1].append(elements1[0])
+}
+  else {
+    nextPool.disabled = true;
+  }
+})
+
+backPool.addEventListener('click', function(){
+  if (elements2[0] !== undefined) {
+  nextPool.disabled = false;
+  backPool.disabled = false;
+  pools[0].prepend(elements2[elements2.length-1])
+}
+  else {
+    backPool.disabled = true;
+  }
+})

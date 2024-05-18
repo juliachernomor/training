@@ -80,3 +80,18 @@ textarea {
   width: 100%;
   resize: none;
 }
+
+.block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+  grid-template-rows: 2;
+}
+
+.pools{
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  list-style-type: none;
+}
