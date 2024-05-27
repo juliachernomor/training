@@ -1,3 +1,33 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+html {
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+  
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // оптимизация выравнивания шрифта относительно центра строки
+  text-rendering: optimizeLegibility;
+  // если по прежнему есть проблемы с выравниванием
+  // https://transfonter.org/ - включите настройку https://prnt.sc/12rnt6g и переконвертируйте шрифт
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+
 #test {
   color: black;
 }
@@ -94,4 +124,200 @@ textarea {
   justify-content: space-between;
   width: 100%;
   list-style-type: none;
+  background-color: bisque;
+}
+
+.pool1{
+  background:  linear-gradient(151deg,#f1cbcb 0%, #d0dcf3 100%);
+}
+.container {
+  margin-top: 50px;
+}
+.wrapper {
+  margin: 0 auto;
+  background: #ffffff;
+  box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  position: relative;
+  width: 100%;
+}
+
+.wrapper input {
+  width: 100%;
+  border: none;
+  height: 50px;
+  border-radius: 5px;
+  padding: 0px 40px 0px 10px;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper input:focus {
+  outline: none;
+}
+
+.my-button {
+  position: absolute;
+  content: "";
+  border:none;
+  background-image: url('photo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  top:0;
+  right: 0;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+  width: 50px;
+  z-index: 2;
+}
+
+
+.my-button:focus{
+  outline: 0;
+}
+
+.results {
+  padding: 0;
+}
+
+.results ul {
+  margin: 0;
+  padding: 0;
+}
+
+.results ul li {
+  list-style-type: none;
+  border-radius: 3px;
+  opacity: 0;
+  display: none;
+  margin: 0;
+  padding: 8px 12px;
+  transition: all .5s linear;
+}
+
+.show .results ul li{
+  opacity: 1;
+  display: block;
+}
+.show .results{
+  padding: 10px;
+}
+
+.results ul li:hover {
+  background: #ececec;
+}
+
+a {
+  color:#003eb7;
+  cursor: pointer;
+}
+
+.modal-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(242, 242, 242, 0.8);
+  z-index: 2;
+}
+
+.modal-container-close {
+  display: none;
+}
+
+.modal {
+  position: relative;
+  margin: auto;
+  background-color: #fff;
+  -webkit-box-shadow: 0 25px 50px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 25px 50px 0 rgba(0, 0, 0, 0.15);
+}
+
+.modal-auth {
+  width: 717px;
+  border-radius: 30px;
+}
+
+.modal-close-button {
+  position: absolute;
+  padding: 0;
+  top: 64px;
+  right: 52px;
+  width: 52px;
+  height: 52px;
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.close-button {
+  fill: #000;
+  margin: auto;
+}
+
+.modal-close-button:hover svg,
+.modal-close-button:focus svg {
+  background-color: #e6e6e6;
+}
+
+.modal-close-button:active svg {
+  fill: rgba(0, 0, 0, 0.3);
+  background-color: #e6e6e6;
+}
+
+.modal-close-button:active {
+  background-color: #e6e6e6;
+}
+
+.modal-content {
+  padding: 64px 70px 49px;
+}
+
+.modal-title {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 64px;
+  font-family: "PT Sans", Arial, sans-serif;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.button-click {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  padding: 10px 40px;
+  box-sizing: border-box;
+  border: 1px solid  #e6e6e6;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.no-scroll {
+  overflow: hidden;
 }

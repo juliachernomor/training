@@ -2479,7 +2479,7 @@ if(commentField.value.length == 0){
 }
 //счетчик событий submit/нажимаем кнопку отправки, если соответствует , то создается новый коммент
 commentForm.addEventListener('submit', function(evt){
-evt.preventDefault();
+evt.preventDefault();// если убрать, то данные отправятся на сервер, а не будут в виде комментариев добавляться
 let newComment =document.createElement('li');
 newComment.classList.add('new-comment');
 newComment.textContent = commentField.value;
@@ -2526,11 +2526,11 @@ commentField.addEventListener('input', function(){
   // console.log(collection2[2].remove())
   // console.log(collection2[2]);
 
-  const docFragment = document.querySelector('#template').content;//нашли document-fragment
-  const text = docFragment.querySelector('.p-template');//нашли ту строку , которую надо заполнить
-  text.textContent = " Вместе весело шагать";// вставляем текст
-  const main = document.querySelector("main")//нашли место, куда вставляем
-  main.appendChild(docFragment)//вставляем
+  // const docFragment = document.querySelector('#template').content;//нашли document-fragment
+  // const text = docFragment.querySelector('.p-template');//нашли ту строку , которую надо заполнить
+  // text.textContent = " Вместе весело шагать";// вставляем текст
+  // const main = document.querySelector("main")//нашли место, куда вставляем
+  // main.appendChild(docFragment)//вставляем
 
 
   const container = document.querySelector('.pool')
@@ -2592,26 +2592,240 @@ const pools = document.querySelectorAll('.pools');
 const nextPool = document.querySelector('.next-pool');
 const backPool = document.querySelector('.back-pool');
 let elements1 = pools[0].children;
-let elements2 = pools[1].children;
 
+// добавить все сразу
+// nextPool.addEventListener('click', function(){
+//   while(elements1.length) {
+//     pools[1].append(elements1[0])
+//   }})
+
+// добавить по одной цифре
 nextPool.addEventListener('click', function(){
-  if (elements1[0] !== undefined) {
-    nextPool.disabled = false;
-    backPool.disabled = false;
-  pools[1].append(elements1[0])
-}
-  else {
-    nextPool.disabled = true;
+  if (elements1.length) {
+      pools[1].append(elements1[0])
+       if (elements1.length && elements1[0] !== undefined) {
+        nextPool.disabled = false;
+        backPool.disabled = false;
+      }
+       else {
+        nextPool.disabled = true;
+      }
   }
 })
 
+//удалить все
+let elements2 = pools[1].children;
 backPool.addEventListener('click', function(){
-  if (elements2[0] !== undefined) {
-  nextPool.disabled = false;
-  backPool.disabled = false;
-  pools[0].prepend(elements2[elements2.length-1])
-}
-  else {
-    backPool.disabled = true;
+  //1 способ
+  // pools[1].remove();//удаляет все в том числе и родителя  из разметки
+  //2 способ
+  // while (elements2.length) {
+    // pools[1].removeChild(elements2[0]);//работает 
+    // elements2[0].parentNode.removeChild(elements2[0]);//работает
+  // }
+  //3 способ 
+  for (let i = elements2.length-1; i>=0; i--){
+    pools[1].removeChild(elements2[elements2.length-1]);
+    // elements2[elements2.length-1].parentNode.removeChild(elements2[elements2.length-1])
   }
+  console.log(elements1[0])
+  }
+)
+console.log(elements2)
+console.log(elements1)
+// backPool.addEventListener('click', function(){
+//   if (elements2[0] !== undefined) {
+//   nextPool.disabled = false;
+//   backPool.disabled = false;
+//   pools[0].prepend(elements2[elements2.length-1])
+// }
+//   else {
+//     backPool.disabled = true;
+//   }
+// })
+let newHeader = document.createElement('h2');
+newHeader.innerText = "Новый заголовок";
+pools[0].insertBefore(newHeader,null);//вставит в контейнере ul в самом конце всех li, так как есть null 
+
+pools[0].replaceChild(elements1[0],elements1[3])
+
+let x = [1,2,3,4,5]
+let y = x[2];
+let v = x[0];
+x[0] = y;
+x[2] = v;
+console.log(x)
+
+if(pools[0].contains(elements1[3])) {
+  elements1[3].style.color = "red";
+}
+
+// document.querySelector('#welcome').innerHTML = "так делать не круто"
+// document.querySelector('#welcome').innerHTML = '<a href="#" >так делать не круто</a>'
+// document.body.innerHTML=document.body.innerHTML+'<a href="#" >так делать не круто</a>'
+// document.body.innerHTML=document.body.innerHTML+'<button type ="submit" class="button">начать игру</button>'
+// document.querySelector('.button').style.margin = '50px'
+
+// document.body.insertAdjacentHTML("afterbegin",'<button type ="submit" class="button">начать игру</button>')
+
+// const cont = document.querySelector('#welcome');
+// const fr = document.createDocumentFragment();
+// for(let i=0; i<6; i++) {
+//   const el = document.createElement('p');
+//   el.textContent=i+1;
+//   el.classList.add('hhh');
+//   fr.appendChild(el)
+// }
+// cont.appendChild(fr)
+
+// let cont = document.querySelector('#welcome');
+// let template = document.querySelector('#template').content;
+// let elem = template.querySelector('div');
+// let fragment = document.createDocumentFragment();
+// for (let i=0; i<6; i++) {
+//   let z= elem.cloneNode(true);
+//   z.textContent = i;
+//   z.classList.add('myClass')
+//   fragment.appendChild(z)
+// }
+// cont.appendChild(fragment)
+
+let searchable =[
+  'Elastic',
+  'PHP',
+  'Java',
+  'JS',
+  'Coding something',
+  'About CSS',
+  'How to coding',
+  'Some other item',
+  'C++',
+  'Concat'
+]
+const searchInput = document.getElementById('search');
+const searchWrapper = document.querySelector('.wrapper');
+const resultsWrapper = document.querySelector('.results');
+
+
+searchInput.addEventListener('keyup', (e)=>{
+  let results=[];
+  let input = searchInput.value;
+  if(input.length) {
+    results = searchable.filter((item)=>{return item.toLowerCase().includes(input.toLowerCase())}).slice(0,5);
+  }
+  renderResults(results)
 })
+
+function renderResults(results){
+  if(!results.length) {
+    return searchWrapper.classList.remove('show')
+  }
+  let content = results.map((item)=>{
+    return `<li><a href=''>${item}</a></li>`
+  }).join('');
+  searchWrapper.classList.add('show');
+  resultsWrapper.innerHTML = `<ul>${content}</ul>`;
+}
+
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      searchField();
+  }})
+
+  document.addEventListener('click', (evt)=>{
+    console.log(evt.target);
+    if (!searchWrapper.contains(evt.target)) {
+      searchField();
+      }
+    });
+
+  function searchField() {
+    searchInput.value='';
+    searchWrapper.classList.remove('show')
+}
+
+
+
+  const dayscount = document.getElementById('dayscount');
+  const daysoutput = document.getElementById('daysoutput');
+  const form = document.querySelector('.form');
+  daysoutput.value=dayscount.value;
+  form.addEventListener('input', ()=>{daysoutput.value=dayscount.value;
+  })
+
+
+  //
+  // const elements = document.querySelectorAll('[name]')//находит все элем с атрибутом name
+  // if(window.localStorage){
+  //   for (let element of elements) {
+  //     setPreSavedValue(element);
+  //     element.addEventListener('keyup', saveValueToStorage)
+  //   }
+  // }
+
+  // function saveValueToStorage({target: {value,name}}) {
+  //   localStorage.setItem(name,value);
+  // }
+
+  // function setPreSavedValue(element) {
+  //   const savedValue =  localStorage.getItem(element.name);
+  //   if(savedValue){
+  //     element.value=savedValue;
+  //   }
+  // }
+
+  // if(window.localStorage){
+  //   const elements = document.querySelectorAll('[name]')//находит все элем с атрибутом name
+  //   for (let element of elements) {
+  //     const savedValue =  localStorage.getItem(element.name);
+  //   if(savedValue){
+  //     element.value=savedValue;
+  //   }
+  //     element.addEventListener('keyup', ({target: {value,name}})=>{localStorage.setItem(name,value);})
+  //   }}
+
+   if(window.localStorage){
+    const elements = document.querySelectorAll('[name]')//находит все элем с атрибутом name
+    for (let element of elements) {
+      let name = element.getAttribute('name');
+      element.value =localStorage.getItem(name);//получаем сохраненное в localStorage значение 
+      element.addEventListener('keyup', ()=>{localStorage.setItem(name, element.value)})// сохраняем
+    }
+  }
+
+  const modalCont = document.querySelector('.modal-container');
+  const modal = document.querySelector('.modal-content');
+  const closeBtn = document.querySelector('.modal-close-button');
+  const btnClick = document.querySelector('.button-click');
+
+  modalCont.addEventListener('click', (evt)=>{
+    console.log(evt.target);
+    if (!modal.contains(evt.target)) {
+      closeModal();
+      }
+    });
+
+  btnClick.addEventListener('click', (evt)=>{
+    evt.preventDefault();//чтобы не было перехода по ссылке!, но далее добавлялись классы
+    modalCont.classList.remove('modal-container-close');
+    document.body.classList.add('no-scroll');
+  })
+
+  closeBtn.addEventListener('click', (evt)=>{
+    evt.preventDefault();
+    closeModal();
+  })
+
+  document.addEventListener('keydown', (evt)=>{
+    if(evt.key === 'Escape') {
+      evt.preventDefault();
+      closeModal();
+    }
+  });
+
+  function closeModal(){
+    modalCont.classList.add('modal-container-close'); 
+    document.body.classList.remove('no-scroll');
+  }
+
+
