@@ -443,7 +443,6 @@ a {
   position: relative;
 }
 
-.discount-100::after,
 .special::after {
   position: absolute;
   content:url('hundred-points.svg');
@@ -452,8 +451,3 @@ a {
   height: 20px;
 }
 
-.discount-100::after{
-  left: calc(100% - 550px);
-  width: 50px;
-  height: 40px;
-}
