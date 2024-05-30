@@ -2546,6 +2546,8 @@ commentField.addEventListener('input', function(){
   const back = document.querySelector('.back')
   forward.addEventListener('click', function(){
     container.append(container.children[0])//первый в конец(слайдер такой)
+    container.children[0].style.backgroundColor = 'red';
+    container.children[container.children.length-1].style.backgroundColor = 'white';
   })
   back.addEventListener('click', function(){
     container.prepend(container.children[container.children.length-1])//последний в начало
@@ -2569,6 +2571,15 @@ commentField.addEventListener('input', function(){
   pBack.addEventListener('click', function(){
     products.prepend(products.children[products.children.length-1])//последний в начало
   })
+
+  products.addEventListener('click', (evt)=>{
+    if(evt.target.nodeName === 'LI') {
+      if(!evt.target.classList.contains('block')) {
+        evt.target.classList.add('block');
+      } else {
+        evt.target.classList.remove('block');
+    }
+  }})
 
   //ресайз textarea
 const textarea = document.querySelector('#test3');
@@ -2709,9 +2720,9 @@ const resultsWrapper = document.querySelector('.results');
 
 searchInput.addEventListener('keyup', (e)=>{
   let results=[];
-  let input = searchInput.value;
-  if(input.length) {
-    results = searchable.filter((item)=>{return item.toLowerCase().includes(input.toLowerCase())}).slice(0,5);
+  let inputs = searchInput.value;
+  if(inputs.length) {
+    results = searchable.filter((item)=>{return item.toLowerCase().includes(inputs.toLowerCase())}).slice(0,5);
   }
   renderResults(results)
 })
@@ -2733,7 +2744,6 @@ function renderResults(results){
   }})
 
   document.addEventListener('click', (evt)=>{
-    console.log(evt.target);
     if (!searchWrapper.contains(evt.target)) {
       searchField();
       }
@@ -2785,7 +2795,7 @@ function renderResults(results){
   //   }}
 
    if(window.localStorage){
-    const elements = document.querySelectorAll('[name]')//находит все элем с атрибутом name
+    const elements = document.querySelectorAll('textarea[name]')//находит все элем с атрибутом name
     for (let element of elements) {
       let name = element.getAttribute('name');
       element.value =localStorage.getItem(name);//получаем сохраненное в localStorage значение 
@@ -2827,5 +2837,39 @@ function renderResults(results){
     modalCont.classList.add('modal-container-close'); 
     document.body.classList.remove('no-scroll');
   }
+
+
+  // document.addEventListener('scroll', (evt)=>{
+  //   console.log(evt.cancelable);
+  //   evt.preventDefault()
+  // })
+
+  const para = document.querySelector('.para');
+  const but = document.querySelector('.but');
+
+  but.addEventListener('click', (evt)=>{
+    console.log('обработчик контекстного меню');
+    evt.preventDefault();
+})
+  para.addEventListener('mousedown', (evt)=>{
+    if(evt.target.classList.contains('but')) {
+      console.log('обработчик параграфа')}
+  })
+
+  const selectedCategoryContainer = document.querySelector('#selected-category')
+  const fieldsetCatalog = document.querySelector('.ppppp')
+  function onFilterChange(evt) {
+    if(evt.target.matches('input[type="radio"]')) {
+      selectedCategoryContainer.textContent =  evt.target.value;
+      if (evt.target.closest('.discount-100')){
+        selectedCategoryContainer.classList.add('special');
+      } else {
+        selectedCategoryContainer.classList.remove('special');
+      }
+    }
+  }
+  fieldsetCatalog.addEventListener('change', onFilterChange);
+
+
 
 

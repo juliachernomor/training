@@ -321,3 +321,139 @@ a {
 .no-scroll {
   overflow: hidden;
 }
+
+.block {
+  color: red;
+  list-style-type: disc;
+}
+
+.li-radio {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+/* .radiolabel {
+  position: relative;
+  display: flex;
+  
+} */
+
+
+.radio__control-label {
+  display: block;
+  margin: 0 0 0 62px;
+  font-family: "PTSans", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  height: 50px;
+}
+
+.radio__control-mark {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.radio[type="radio"]:checked + .radio__control-mark::before {
+  position: absolute;
+  content: "";
+  top: 32%;
+  left: 33%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #333333;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.radio[type="radio"]:hover + .radio__control-mark {
+  background-color: #e5e5e5;
+}
+
+
+.radio[type="radio"]:active + .radio__control-mark {
+  background-color: #d5d5d5;
+}
+
+.xcc {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+
+}
+
+.checkboxlabel {
+  display: block;
+  margin: 0 0 0 62px;
+  font-family: "PTSans", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.checkbox__control-mark {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 46px;
+  height: 46px;
+  background-color: #f2f2f2;
+  border: 1px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checkboxw[type="checkbox"]:checked + .checkbox__control-mark::before {
+  position: absolute;
+  content: "";
+  top: 30%;
+  left: 28%;
+  width: 22px;
+  height: 16px;
+  mask-image: url("tick.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #000000;
+}
+
+.checkboxw[type="checkbox"]:hover + .checkbox__control-mark {
+  background-color: #e5e5e5;
+}
+
+.checkboxw[type="checkbox"]:active + .checkbox__control-mark::before {
+  opacity: 30%;
+}
+
+.checkboxw[type="checkbox"]:active + .checkbox__control-mark {
+  background-color: #d5d5d5;
+}
+.special {
+  position: relative;
+}
+
+.discount-100::after,
+.special::after {
+  position: absolute;
+  content:url('hundred-points.svg');
+  left: calc(100% + 10px);
+  width: 25px;
+  height: 20px;
+}
+
+.discount-100::after{
+  left: calc(100% - 550px);
+  width: 50px;
+  height: 40px;
+}
