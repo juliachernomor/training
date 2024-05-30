@@ -2828,7 +2828,6 @@ function renderResults(results){
 
   document.addEventListener('keydown', (evt)=>{
     if(evt.key === 'Escape') {
-      evt.preventDefault();
       closeModal();
     }
   });
