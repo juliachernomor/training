@@ -2869,6 +2869,57 @@ function renderResults(results){
   }
   fieldsetCatalog.addEventListener('change', onFilterChange);
 
+// window.addEventListener('load', ()=>{
+//   console.log('Загрузка страницы')
+// })
+
+// para.dataset.rest = "xxx"
 
 
+// const regexp = /Script/
+// console.log(regexp.test('JavaScript'))
 
+  // let lowerCaseTags;
+  // const hasUniqueTags = ()=>{
+  //   lowerCaseTags = ["A","a","C","b"].map((tag)=>{ return tag.toLowerCase()})
+  //     return lowerCaseTags === new Set(lowerCaseTags);
+  // }
+  // console.log(hasUniqueTags())//Set(3) {'a', 'c', 'b'}
+
+
+// let zz;
+//   const temp = {};
+//   const m = ["A","n","a","C","b"].map((point)=>{return point.toLowerCase()});
+//   console.log(m)
+//    zz = m.every((tag)=>{
+//     if(temp[tag]) {
+//       return false;
+//     }
+//     temp[tag] = true;
+//     return true;
+//   })
+//   console.log(zz)//false, то есть во временном массиве есть повторяющееся свойство
+//   console.log(temp)//a: true; n:true !! До первого повтора; на индексе 2 выходим из функции
+
+  const VALID_SYMBOLS =/[abc]/;//допустимы только буквы а, б, с
+  const tags = ["a", "b", "c","d"]
+  const n = tags.every((tag) => VALID_SYMBOLS.test(tag));
+
+  console.log(n);
+
+  const sel= document.getElementById('sel');
+
+  sel.addEventListener('input', ()=>{
+    but.style.backgroundColor = sel.value;
+  })
+
+  const inpSize = document.querySelector('.size-letter');
+  const paragraf = document.querySelector('.color');
+  const pixels = document.querySelector('.pixels');
+
+  inpSize.addEventListener('input', ()=>{
+    pixels.textContent = inpSize.value;
+    paragraf.style.fontSize = inpSize.value+'px';
+    paragraf.style.lineHeight = inpSize.value+'px';
+    pixels.style.fontSize = inpSize.value+'px';
+  })
