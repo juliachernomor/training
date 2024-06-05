@@ -2932,8 +2932,7 @@ function renderResults(results){
       closeParol.classList.remove('hidden');
       showParol.classList.add('hidden');
       password.type="text";
-      
-    } 
+    }
   })
   closeParol.addEventListener("click", ()=>{
     if(showParol.classList.contains('hidden')) {
@@ -2943,12 +2942,89 @@ function renderResults(results){
     }
   })
 
-  if(window.localStorage){
-    const passElements = document.querySelectorAll('input[type]')//находит все элем с атрибутом type
-    for (let element of passElements) {
-      let name = element.getAttribute('name');
-      element.value =localStorage.getItem(name);//получаем сохраненное в localStorage значение 
-      element.addEventListener('keyup', ()=>{localStorage.setItem(name, element.value)})// сохраняем
-    }
-  }
+  // if(window.localStorage){
+  //   const passElements = document.querySelectorAll('input[type]')//находит все элем с атрибутом type
+  //   for (let element of passElements) {
+  //     let name = element.getAttribute('name');
+  //     element.value =localStorage.getItem(name);//получаем сохраненное в localStorage значение 
+  //     element.addEventListener('keyup', ()=>{localStorage.setItem(name, element.value)})// сохраняем
+  //   }
+  // }
 
+  const smallLetters='qwertyuiopasdfghjklzxcvbnm'
+  const sigLetters='QWERTYUIOPASDFGHJKLZXCVBNM'
+  const digits='0123456789'
+  const specials='!@#$%^&*()_-+=|/.,?~{}[]'
+
+
+  const sequrityBar = document.querySelector('.security-bar');
+
+  password.addEventListener('keyup', ()=>{
+    const passValue=password.value;
+
+    let isSmallLetters = false;
+    let isBigLetters = false;
+    let isDigits = false;
+    let isSpecials = false;
+
+
+    sequrityBar.style.width=passValue.length*10 + '%'
+
+    for(let i=0; i<passValue.length; i++) {
+      if(!isSmallLetters && smallLetters.indexOf(passValue[i])!=-1) {
+        isSmallLetters = true;
+      }
+       else if(!isBigLetters && sigLetters.indexOf(passValue[i])!=-1) {
+        isBigLetters = true;
+      }
+      else if(!isDigits && digits.indexOf(passValue[i])!=-1) {
+        isDigits = true;
+      }
+      else if(!isSpecials && specials.indexOf(passValue[i])!=-1) {
+        isSpecials = true;
+      }
+
+      let rating = 0;
+      function showRating() {
+        if(isSmallLetters) rating++;
+        if(isBigLetters) rating++;
+        if(isDigits) rating++;
+        if(isSpecials)  rating++;
+        return rating;
+      }
+      showRating();
+      
+      if(passValue.length<=6 && rating<=1){
+        sequrityBar.style.width= '10%';
+        sequrityBar.style.backgroundColor= '#8B0000';
+      }
+      if(passValue.length>=6 && rating>=1 && rating<=3){
+        sequrityBar.style.width= '20%';
+        sequrityBar.style.backgroundColor= '#FF0000';
+      }
+      if(passValue.length>=6 && rating>1 && rating<4){
+        sequrityBar.style.width= '50%';
+        sequrityBar.style.backgroundColor= '#FFFF00';
+      }
+      if(passValue.length<6 && rating>=3){
+        sequrityBar.style.width= '50%';
+        sequrityBar.style.backgroundColor= '#FFFF00';
+      }
+      if(passValue.length>=8 && rating<3){
+        sequrityBar.style.width= '50%';
+        sequrityBar.style.backgroundColor= '#FFFF00';
+      }
+      if(passValue.length>=8 && rating>3){
+        sequrityBar.style.width= '50%';
+        sequrityBar.style.backgroundColor= '#FFFF00';
+      }
+      if(passValue.length>=8 && rating>=3){
+        sequrityBar.style.width= '100%';
+        sequrityBar.style.backgroundColor= '#32CD32';
+      }
+      if(passValue.length>=6 && rating==4){
+        sequrityBar.style.width= '100%';
+        sequrityBar.style.backgroundColor= '#32CD32';
+      }
+    }
+  })
