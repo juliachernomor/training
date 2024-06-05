@@ -451,3 +451,35 @@ a {
   height: 20px;
 }
 
+.pass {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  max-width: 350px;
+  color:#000000;
+  z-index: 1;
+}
+
+.pass #svg1,
+.pass #svg2 {
+  position: absolute;
+  content: "";
+  color: #000;
+  z-index: 4;
+  left: calc(100% - 25px);
+  top: 5px;
+}
+
+.pass #svg2 {
+  top: 4px;
+}
+
+.hidden {
+  display: none;
+}
+
+.password {
+  margin: 0;
+  padding: 5px 30px 5px 5px;
+}

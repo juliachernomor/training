@@ -2923,3 +2923,32 @@ function renderResults(results){
     paragraf.style.lineHeight = inpSize.value+'px';
     pixels.style.fontSize = inpSize.value+'px';
   })
+
+  const password = document.querySelector('.password');
+  const showParol = document.getElementById('svg1');
+  const closeParol = document.getElementById('svg2');
+  showParol.addEventListener("click", ()=>{
+    if(closeParol.classList.contains('hidden')) {
+      closeParol.classList.remove('hidden');
+      showParol.classList.add('hidden');
+      password.type="text";
+      
+    } 
+  })
+  closeParol.addEventListener("click", ()=>{
+    if(showParol.classList.contains('hidden')) {
+      showParol.classList.remove('hidden');
+      closeParol.classList.add('hidden');
+      password.type="password";
+    }
+  })
+
+  if(window.localStorage){
+    const passElements = document.querySelectorAll('input[type]')//находит все элем с атрибутом type
+    for (let element of passElements) {
+      let name = element.getAttribute('name');
+      element.value =localStorage.getItem(name);//получаем сохраненное в localStorage значение 
+      element.addEventListener('keyup', ()=>{localStorage.setItem(name, element.value)})// сохраняем
+    }
+  }
+
