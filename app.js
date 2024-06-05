@@ -2951,15 +2951,15 @@ function renderResults(results){
   //   }
   // }
 
-  const smallLetters='qwertyuiopasdfghjklzxcvbnm'
-  const sigLetters='QWERTYUIOPASDFGHJKLZXCVBNM'
+  const smallLetters='йцукенгшщзхъфывапролджэячсмитьбюqwertyuiopasdfghjklzxcvbnm'
+  const sigLetters='ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮQWERTYUIOPASDFGHJKLZXCVBNM'
   const digits='0123456789'
   const specials='!@#$%^&*()_-+=|/.,?~{}[]'
 
 
   const sequrityBar = document.querySelector('.security-bar');
 
-  password.addEventListener('keyup', ()=>{
+  password.addEventListener('input', ()=>{
     const passValue=password.value;
 
     let isSmallLetters = false;

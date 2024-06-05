@@ -450,13 +450,14 @@ a {
   width: 25px;
   height: 20px;
 }
-
+.block-for-ps {
+  width: 350px;
+}
 .pass {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
-  width: 350px;
   color:#000000;
   z-index: 1;
 }
@@ -489,7 +490,6 @@ a {
 }
 
 .security-bar {
-  max-width: 350px;
   height: 5px;
   margin-top: 5px;
   border-radius: 5px;
