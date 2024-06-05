@@ -461,8 +461,8 @@ a {
   z-index: 1;
 }
 
-.pass #svg1,
-.pass #svg2 {
+.pass svg1,
+.pass svg2 {
   position: absolute;
   content: "";
   color: #000;
@@ -471,7 +471,7 @@ a {
   top: 5px;
 }
 
-.pass #svg2 {
+.pass svg2 {
   top: 4px;
 }
 
