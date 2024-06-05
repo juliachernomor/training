@@ -2925,8 +2925,8 @@ function renderResults(results){
   })
 
   const password = document.querySelector('.password');
-  const showParol = document.getElementById('svg1');
-  const closeParol = document.getElementById('svg2');
+  const showParol = document.querySelector('.svg1');
+  const closeParol = document.querySelector('.svg2');
   showParol.addEventListener("click", ()=>{
     if(closeParol.classList.contains('hidden')) {
       closeParol.classList.remove('hidden');
