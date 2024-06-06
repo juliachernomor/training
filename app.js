@@ -1,11 +1,10 @@
-
 //Замыкания в js
 //1.Функции возвращают новые функции
 //2.Возвращаемые функции помнят контекст, где были созданы
 // function createGreeting () {//инструкция
 //     const message = 'Приветствую тебя,';
 //     return function createName (name) {
-//         console.log(message,name); // первый аргумент будет взят из замыкания, второй - взят из вызова  
+//         console.log(message,name); // первый аргумент будет взят из замыкания, второй - взят из вызова
 //     }
 // }
 // const printName  = createGreeting(); //создай нам нечто, здесь будет сохраняться createName ()
@@ -70,7 +69,6 @@
 // console.log(addByX(5)); //7
 // console.log(addByX(3)); //7
 
-
 // const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 // const evenOnly = nums.filter(function (n) {
@@ -111,7 +109,7 @@
 //    for (let item of result) {
 //       item = 'ckjdj';
 //    }
- 
+
 //   return result;
 // }
 // console.log(changeWords(myStr));
@@ -131,7 +129,6 @@
 
 // me.setName("ggfgf");
 // console.log(me.getName());
-
 
 // privatу methods ниже privateSetName недоступен напрямую потребителям, и он может получить доступ к частной переменной состояния _name через закрытие.
 // function makePerson(name) {
@@ -159,7 +156,7 @@
 //      return a + b;
 //    },
 //  };
- 
+
 //  console.log(obj.sum(10, 10)); // 👉️ 20
 //  console.log(obj.sum(10, 20)); // 👉️ 30
 
@@ -169,10 +166,9 @@
 //      return a + b;
 //    },
 //  };
- 
+
 //  console.log(object.sum(10, 10)); // 👉️ 20
 //  console.log(object.sum(10, 20)); // 👉️ 30
-
 
 // console.log(varNumber); // undefined
 // console.log(letNumber); // Doesn't log, as it throws a ReferenceError letNumber is not defined
@@ -190,7 +186,7 @@
 // function createTDZ(a=b, b) {
 // }
 
-// createTDZ(undefined, 1); 
+// createTDZ(undefined, 1);
 
 // function print() {
 //     console.log(arguments);
@@ -200,12 +196,12 @@
 //   }
 
 //   print("hello", 400, false)
-  
-  // {
-  //   '0': 'hello',
-  //   '1': 400,
-  //   '2': false
-  // }
+
+// {
+//   '0': 'hello',
+//   '1': 400,
+//   '2': false
+// }
 
 // примеры с объектом arguments (не для стрелочных f и не для кода старше 2015(ES6))
 // 1. перебор аргументов
@@ -217,20 +213,20 @@
 //     }
 //     return total;
 //   }
-  
+
 //   sum(4, 5, 6, 7);
 
 // 2.передача аргументов другой функции
 //   function greet(name) {
 //     console.log("Hello, " + name + "!");
 //   }
-  
+
 //   function greetAll() {
 //     for(let i = 0; i < arguments.length; i++) {
 //       greet(arguments[i]);
 //     }
 //   }
-  
+
 //   greetAll("Alice", "Bob", "Charlie");
 
 // 3.передача аргументов в функцию
@@ -238,7 +234,7 @@
 // function applyDiscount(price, discount) {
 //     return price - (price * discount / 100);
 //   }
-  
+
 //   let args = [100, 20];
 //   applyDiscount.apply(null, args);
 
@@ -252,24 +248,24 @@
 //     }
 //     return total;
 //   };
-  
+
 //   sum(1, 2, 3); // 6
 //   sum(4, 5, 6, 7); // 22
 
-  // 2.передача аргументов другой функции
+// 2.передача аргументов другой функции
 //   let greet = (name) => {
 //     console.log("Hello, " + name + "!");
 //   }
-  
+
 //   let  greetAll = (...args) => {
 //     for(let i = 0; i < args.length; i++) {
 //       greet(args[i]);
 //     }
 //   }
-  
+
 //   greetAll("Alice", "Bob", "Charlie");
 
-//   3. 
+//   3.
 //   let print = (...args) => {
 //     console.log(args);
 //     console.log(args[0]);
@@ -278,11 +274,11 @@
 //   }
 
 //   print("hello", 400, false)
-  
+
 // globalThis.b = "MDN";
-// console.log(typeof b); // "MDN" 
+// console.log(typeof b); // "MDN"
 // // "MDN"
-// console.log(typeof globalThis); 
+// console.log(typeof globalThis);
 
 // a = 37;
 // console.log(globalThis.a); // 37
@@ -290,57 +286,51 @@
 // setInterval - вызов функции регулярно, повтор через указанное кол-во времени
 // setTimeout - вызов функции однократно через указанное кол-во времени
 
-  // let input = document.querySelector('input'); 
+// let input = document.querySelector('input');
 
-  // input.addEventListener('click', function () {
-    //  1. Oбычная функция. Анонимная f в setInterval теряет контекст, который есть у внешней и получается this = undefined
-    // console.log(this);//<input value="10" aria-autocomplete="list">
-    // setInterval(function () {console.log(this.value)}, 1000) // по клику будет undefined
+// input.addEventListener('click', function () {
+//  1. Oбычная функция. Анонимная f в setInterval теряет контекст, который есть у внешней и получается this = undefined
+// console.log(this);//<input value="10" aria-autocomplete="list">
+// setInterval(function () {console.log(this.value)}, 1000) // по клику будет undefined
 
-    //  2. Oбычная функция. Чтобы исправить ситуацию, можно: записываем контекст внешней функции в переменную self.
-    // let self = this; 
-    // setInterval(function () {console.log(self.value)}, 1000)
+//  2. Oбычная функция. Чтобы исправить ситуацию, можно: записываем контекст внешней функции в переменную self.
+// let self = this;
+// setInterval(function () {console.log(self.value)}, 1000)
 
-      //  2. Стрелочная  функция. Берет контекст у своего родителя
-      // setInterval(() => {console.log(this.value)}, 1000)
-  // })
+//  2. Стрелочная  функция. Берет контекст у своего родителя
+// setInterval(() => {console.log(this.value)}, 1000)
+// })
 
-
-
-
-  // В нестрогом режиме при выполнении в браузере this при вызове функции будет равен window. Ниже - строгий режим
+// В нестрогом режиме при выполнении в браузере this при вызове функции будет равен window. Ниже - строгий режим
 // так как аргумент this не задан, то он в обычных функциях undefined
-  //   function one (a, ...args) {
-  //     console.log('one', this, a, args)};
-  //   const two = function (a) {
-  //     console.log('two', this, a, arguments)};
+//   function one (a, ...args) {
+//     console.log('one', this, a, args)};
+//   const two = function (a) {
+//     console.log('two', this, a, arguments)};
 
-  //     // в стрелочных функциях не может быть аргументов. Стрелочные не имеют собств this ? поэтому берут из окр среды, из глоб контекста(исх код, как модуль, соотв-нно будет undefined)
-  //   const three = (a) => {
-  //       console.log('three', this, a)};
+//     // в стрелочных функциях не может быть аргументов. Стрелочные не имеют собств this ? поэтому берут из окр среды, из глоб контекста(исх код, как модуль, соотв-нно будет undefined)
+//   const three = (a) => {
+//       console.log('three', this, a)};
 
-  // one(1,2,3); //one undefined(в строгом, а для нестрогого window) 1 [2,3]
-  // two(1,2,3);//two undefined(в строгом, а для нестрогого window) 1 {массивоподобный объект: 1,2,3}
-  // three(1,2,3);//three undefined(в строгом, а для нестрогого window) 1 (контекст потерян )
-
-
-
+// one(1,2,3); //one undefined(в строгом, а для нестрогого window) 1 [2,3]
+// two(1,2,3);//two undefined(в строгом, а для нестрогого window) 1 {массивоподобный объект: 1,2,3}
+// three(1,2,3);//three undefined(в строгом, а для нестрогого window) 1 (контекст потерян )
 
 // Если функция хранится в объекте — это метод этого объекта.
 // obj.one();obj.two() obj.three()— это методs объекта obj. В этом случае значение this — этот объект.
-  // const obj = {
-  //   // в нормальных функциях this указывает на объект obj
-  //   one: function(a, b, ...args) {
-  //     console.log('one', this, a, b, args)},
-  //   two (a, b) {
-  //     console.log('two', this, arguments)},
-  //   three: (a,b) => {
-  //       console.log('three', this)},
-  // }
+// const obj = {
+//   // в нормальных функциях this указывает на объект obj
+//   one: function(a, b, ...args) {
+//     console.log('one', this, a, b, args)},
+//   two (a, b) {
+//     console.log('two', this, arguments)},
+//   three: (a,b) => {
+//       console.log('three', this)},
+// }
 
-  // obj.one(1,2,3); //one {объект в строгом и не строгом} 1 2 [3]
-  // obj.two(1,2,3); //two {объект в строгом и не строгом} {массивоподобный объект 1 2 3}
-  // obj.three(1,2,3);//three undefined (контекст теряется в строгом)(если нестрогий режим, то window)
+// obj.one(1,2,3); //one {объект в строгом и не строгом} 1 2 [3]
+// obj.two(1,2,3); //two {объект в строгом и не строгом} {массивоподобный объект 1 2 3}
+// obj.three(1,2,3);//three undefined (контекст теряется в строгом)(если нестрогий режим, то window)
 
 //   const person = {
 //     name: 'John',
@@ -348,8 +338,7 @@
 //         console.log(`Hi! My name is ${this.name}`)
 //     }
 //  }
- 
- 
+
 //  person.sayName();//Hi! My name is ошибка(потеря контекста в строгом режиме, в не строгом - пусто)
 
 // Функция - объект. Сравниваются объекты по ссылкам
@@ -383,7 +372,6 @@
 
 // obj.print()
 
-
 //Функция-конструктор  и оператор new. Любая функция, кроме стрелочной; имя функции с большой буквы; выполняется только с помощью оператора new
 //1
 // function User (name) {
@@ -413,7 +401,6 @@
 // let animalTwo = new Animals('cat', 4);
 // console.log(animalTwo);
 // animalTwo.sayAnimal();
-
 
 // Классы
 //1
@@ -454,14 +441,13 @@
 
 //   alert( "Showing you the movie" ); // (*)
 //   // ...
-// } 
+// }
 // showMovie(age);
-
 
 //проверка на простые числа(не 0,не 1, делится без остатка на 1 и на саму себя. Если делится без остатка и на другие, то уже не простое, н-р 4, 6 делятся еще на 2, а 6 на 2,3)
 // function showPrimes(n) {
 
-//   for (let i = 2; i < n; i++) {//не 0, не 1, 
+//   for (let i = 2; i < n; i++) {//не 0, не 1,
 //     if (!isPrime(i)) continue;//цикл не прерывается,
 //       //а переходит к следующей итерации (если условие все ещё равно true)
 
@@ -470,7 +456,7 @@
 // }
 
 // function isPrime(x) {
-//   for (let i = 2; i < x; i++) {делится  без остатка ТОЛЬКО на 1 и на саму себя 
+//   for (let i = 2; i < x; i++) {делится  без остатка ТОЛЬКО на 1 и на саму себя
 //     if ( x % i == 0) return false; // если целый остаток от деления равен 0
 //   }
 //   return true;
@@ -572,7 +558,6 @@
 // obj1.getThis()
 // obj2.getThis()
 
-
 //Значение this всегда меняется в зависимости от того, как вызывается функция
 // const obj1 = {
 //   age: 36,
@@ -609,7 +594,6 @@
 // console.log(getThis() === globalThis)//false
 // console.log(getThis() === undefined)//true
 
-
 // для не строгого режима
 // let obj = {a: 'Custom'}
 // var a = 'Global';
@@ -623,7 +607,6 @@
 // console.log(obj.whatsThis()); // 'Custom'; для не строгого и строгого одно и тоже
 // console.log(obj);// для не строгого и строгого одно и тоже
 
-
 //apply(), call() передает значение this в ТЕКУЩУЮ функцию так, если бы это был ПАРАМЕТР. НЕ созд новую функцию
 // function putObject(n,d){
 //   return this.a + this.b + n + d;
@@ -634,8 +617,7 @@
 // console.log(putObject.call(obj, 11, 3));
 // console.log(putObject.apply(obj, [1, 5]));
 
-
-//bind() -создает новую функцию с тем же телом и областью действия, но значение this привязывается к 1 аргументу bind 
+//bind() -создает новую функцию с тем же телом и областью действия, но значение this привязывается к 1 аргументу bind
 // function putObject(n,d){
 //   return this.a + this.b + n + d;
 // }
@@ -644,10 +626,6 @@
 
 // const newFunction = putObject.bind(obj, 1,3);
 // console.log(newFunction());
-
-
-
-
 
 // истинно, когда currentTarget и target являются одним и тем же объектом this === e.currentTarget//true   this === e.target// true
 // const elements = document.getElementsByTagName("a");
@@ -659,7 +637,6 @@
 // for (const element of elements) {
 //   element.addEventListener("click", blueElement, false)
 // }
-
 
 // привязка this к классу
 // class Car {
@@ -712,7 +689,6 @@
 // console.log(objNum3);
 // console.log(objNum3.animal);
 
-
 // let obj =  {}
 // function A() { return obj; }
 // function B() { return obj; }
@@ -726,7 +702,6 @@
 // let Foo = function (name) { this.myName = name;}
 // let fff = new Foo('Mike');
 // console.log(fff);
-
 
 // Call
 // function Animal (type, food) {
@@ -750,7 +725,6 @@
 // const animal2 = new setPrice(5000);
 // console.log(animal1);
 // console.log(animal2);
-
 
 // В этом примере мы вызвали функцию mountEntity без аргумента thisObj. В таких случаях JavaScript ссылается на глобальный объект.
 
@@ -879,8 +853,7 @@
 // const ааа = new App('Ann');
 // ааа.showName()
 
-
-// если метод передается отдельно от объекта, то this теряется. 
+// если метод передается отдельно от объекта, то this теряется.
 // let user = {
 //   firstName: "Вася",
 //   sayHi() {
@@ -932,7 +905,7 @@
 
 // for(let i =1; i<6; i++) {
 //   setTimeout(()=>{console.log(i)}, 1000)
-// } 
+// }
 
 // setTimeout(x, 1001)
 
@@ -946,7 +919,6 @@
 //     x();
 //   }
 // }, 1000)
-
 
 // chain и прототипы функций
 // function WorkingHours(){
@@ -1035,7 +1007,7 @@
 //   cache.set(x, result);
 //   return result;
 //   }
-  
+
 // }
 // console.log((decorateCache(past))(1));
 // console.log((decorateCache(past))(1));
@@ -1056,19 +1028,18 @@
 
 //   let result = func(x,y);
 //   // console.log(result);
-//   console.log(cache.set(result[0],result[1])); 
+//   console.log(cache.set(result[0],result[1]));
 //   cache.forEach((value, key)=>{console.log(`${key}:${value}`)})
 //   return result;
 //   }
-  
+
 // }
 // console.log((decorateCache(past))(1,3));
 // console.log((decorateCache(past))(1,3));
 
-
 // Декоративное кеширование не подходит для работы с объектными методами(ощибка будет в строке со * - не увидит this.someMethod)
 
-//решение - привязка slow к объекту с помощью bind 
+//решение - привязка slow к объекту с помощью bind
 
 // let worker = {
 //   someMethod() {
@@ -1156,15 +1127,13 @@
 // }
 
 // function hash(args) {
-//   return [].join.call(args);//т.к объект arguments является одновременно итерационным и похожим на массив, но не реальным массивом, то берем (заимствуем) метод join из обычного массива ([].join) и используем [].join.call для запуска его в контексте аргументов. 
+//   return [].join.call(args);//т.к объект arguments является одновременно итерационным и похожим на массив, но не реальным массивом, то берем (заимствуем) метод join из обычного массива ([].join) и используем [].join.call для запуска его в контексте аргументов.
 //   }
-
 
 // worker.slow = cachingDecorator(worker.slow, hash);
 
 // console.log( worker.slow(3, 5) ); // works
 // console.log( "Again " + worker.slow(3, 5) ); // same (cached)
-
 
 // setTimeout
 
@@ -1213,20 +1182,17 @@
 // let items =[1,2,3]
 
 // function getItems () {
-//   return items =[3,2,1]// переопределяем ссылку 
+//   return items =[3,2,1]// переопределяем ссылку
 // }
 // console.log(items)//[1,2,3]
 // console.log(getItems());//[3,2,1]
 // console.log(items)//[3,2,1]
-
 
 // //  var loki; всплывает сюда и следующая строка не выполняется
 // if ((loki in window) === false) {// сейчас в window нет property loki
 //   var loki = 1; //loki=1; не выполняется
 // }
 // console.log(loki)// undefined из-за всплытия
-
-
 
 // function как объект
 // function logPrice(price){
@@ -1244,7 +1210,6 @@
 // const lll = currencize(logPrice, '$');
 // lll(56);
 
-
 // // тоже самое, что и выше
 // function logPrice(price){
 //   console.log(price);
@@ -1260,7 +1225,6 @@
 // const lll = currencize(logPrice, );
 // lll(56, '$');
 // console.log(typeof(lll));
-
 
 // const y = new Boolean(true);
 // y;//{true} объект
@@ -1284,7 +1248,7 @@
 //   type:'bread',
 //   cookPie,
 //  }
- 
+
 // console.log(obj.cook('lemon', 42, true));
 // console.log(obj1.cookPie('butter', 15, false));
 
@@ -1313,8 +1277,6 @@
 //   console.log(type, radius, slice)
 // }
 
-
-
 // function cookPie () {
 //   console.log(this.type)
 // }
@@ -1328,13 +1290,10 @@
 // console.log(lemonPie.cookPie());
 // console.log(chocoPie.cookPie());
 
-
 // console.log(new  cookPie());
 
-
-
 // const number = [5, 11, 39, -4, 0, 104]
-// console.log(Math.max.call(this,...number))//берем спред оператор и размазываем массив 
+// console.log(Math.max.call(this,...number))//берем спред оператор и размазываем массив
 // console.log(Math.max.apply(this, number))//объект Math с методом max. this мы не меняем, а передаем объект Math
 // console.log(Math.max(...number))
 
@@ -1385,10 +1344,6 @@
 // }
 // changePie.inc().inc().inc().dec().dec().rad()
 
-
-
-
-
 // замыкание в цикле
 // function printI (index){
 //   console.log(index)
@@ -1411,7 +1366,6 @@
 //   setTimeout(((ind)=> printI(ind))(i), i)
 // } // выведет параллельно сначала1377(0,1,2,3,4,) а потом 1378(0,1,2,3,4)
 
-
 // //  let создает блочный scope, поэтому 5 settimeout ов с разными и отправляется ожидать вывода
 // for(var i=0; i<5; i++){
 //   let ind=i;
@@ -1419,15 +1373,13 @@
 //   setTimeout(()=> printI(ind), ind)
 // } // выведет сначала1377(0,1,2,3,4,), а потом 1378(0,1,2,3,4,)
 
-
 // без переопределения функции
-
 
 // //переопределение функции
 // function getRadius() {
 //   let radius = 0;
 //   getRadius = function (){
-//     return radius +=2; 
+//     return radius +=2;
 //   }
 //   getRadius();
 // }
@@ -1452,7 +1404,6 @@
 
 // const fff = decorator(cookPie); //можно подменить на cookPie
 // fff('apricot', 25, true)
-
 
 // // декоратор spy - считает сколько было вызовов и какие аргументы передавались
 // function cookPie(type, radius, or) {
@@ -1502,8 +1453,6 @@
 // Каррирование – это трансформация функций таким образом, чтобы они принимали аргументы не как f(a, b, c), а как f(a)(b)(c).
 // Каррирование не вызывает функцию. Оно просто трансформирует её.
 
-
-
 // Каррирование
 // function curry(func) {
 //   return function(a) {//обертка function(a) вызывается как sum(4), аргумент сохраняется в лексическом окружении и возвращается новая обёртка function(b).
@@ -1529,12 +1478,10 @@
 // hello=message;
 // console.log(hello);
 
-
 // // 1533 let и var можно объявлять без значения
 // let tomato;//undefined
 // var potato;//undefined
 // const peach;//error
-
 
 // // 1539 ключи и значения в объектах и массивах const меняются. Сами ссылки-нет
 // // 1
@@ -1547,7 +1494,7 @@
 // fruits.pop('animal');//удаляет последний элем из массива и возвращает его значение
 // console.log(fruits);//[ 'apple', 'grape', 'pear' ]
 // //2
-// const fruits = 
+// const fruits =
 //   {
 //     fruit1: 'apple',
 //     fruit2:  'peach',
@@ -1558,8 +1505,6 @@
 
 //   console.log(fruits);
 //   fruits = null;// error -перезаписать ссылку на объект нельзя
-
-
 
 // //1564 let, const - нельзя повторно объявлять перем с тем же именем в одной и той же обл вид. Но можно повторно объявлять перем с тем же именем в разных обл вид, например, родит и дочерней;
 // //var - можно повторно объявлять перем с тем же именем в одной и той же обл вид. и в разных обл вид, например, родит и дочерней;
@@ -1585,7 +1530,6 @@
 // Динамическое типизирование- переменные не привязаны ни к одному типу. В переменной может быть строка, а через некоторое время число;
 
 // camelCase(все случаи кроме: PascalCase(классы и конструкторы,перечисления(перечисления перем, объединенных общей тематикой(объект))) и CONSTANT_CASE(настоящие константы, типа pi или EARTH_RADIUS))
-
 
 // //Number(целые числа, числа с плавающей точкой, +-Infinity, NaN)
 // console.log(NaN**0)// 1 Это исключение, при любых других операциях с NaN будет NaN. NaN при попытке совершить запрещенную операцию
@@ -1614,7 +1558,6 @@
 комменты 
 */
 // <!-- gggg --> комменты в html
-
 
 // //1619 координаты курсора
 // document.addEventListener('click',(e)=>{
@@ -1645,25 +1588,24 @@
 // alert( 0.1 + 0.2 == 0.3 )// false
 // console.log(isFinite(''));//пустая строка -0
 // console.log(isFinite('hg'));//ошибка числового знач
-// console.log(Number('100'))//NaN 
+// console.log(Number('100'))//NaN
 // console.log(parseInt('22,5'))//22
 // console.log(parseInt('22.5'))//22
 // console.log(Number('22,5'))//NaN
 // console.log(Number('22.5'))//22.5
 // console.log('2'>11)
 
-
 //Switch
 // function isEven(number) {
 //   let result;
 //   switch(number) {
-//     case 0: 
+//     case 0:
 //       result ='четные';
 //       break;
-//     case 1: 
-//       result='ytчетные'; 
+//     case 1:
+//       result='ytчетные';
 //       break;
-//     case 2: 
+//     case 2:
 //       result ='разные';
 //       break;
 //     default:  result='fhhfh';
@@ -1680,9 +1622,9 @@
 //       return result ='четные';
 //     case 3:
 //     case 4:
-//     case 5: 
-//       return result='ytчетные'; 
-//     case 6: 
+//     case 5:
+//       return result='ytчетные';
+//     case 6:
 //     case 7:
 //     case 8:
 //       return result ='разные';
@@ -1754,7 +1696,6 @@
 // console.log(typeof a);
 // console.log(a);
 
-
 // //чтобы прибавлялся pad сначала строки
 // const myPadStart=(string,length,pad)=>{
 //   const actualPad = length - string.length;//из итоговой длины вычитаем длину текущей строки
@@ -1766,8 +1707,6 @@
 // }
 // console.log(myPadStart('widget with id',29,'array '))
 
-
-
 // выбирает буквы из строкового массива  по значениям в цифровом массиве по порядку
 // let symbols = ['a','d','h','u','e','b','g','a','d','h','u','e','b','g','a','d','h','u','e','b','g'];
 // let n =[4,1,7,2,11,9];
@@ -1776,7 +1715,6 @@
 //   empty=empty+symbols[n[i]];
 // }
 // console.log(empty);//edaheh
-
 
 // // замена переменной
 // let n =[4,1,7,2,11,9];
@@ -1789,7 +1727,6 @@
 // n[0] =n[1];
 // n[1] =swap;
 // console.log(n)
-
 
 // // // минимальное число
 // let n =[4,1,7,2,11,9];
@@ -1869,7 +1806,7 @@
 //   age: 21,
 //   getGreeting(){
 //     return `hello,my name is ${cat.name}, my age is ${cat.age}`
-//   } 
+//   }
 // }
 // console.log(cat.getGreeting())
 
@@ -1899,7 +1836,7 @@
 // console.log(second, forth);//y n
 // console.log(first, second)
 
-// // join 
+// // join
 // console.log(['my','name','is','keks'].join(''));
 // console.log(['my'].join('!'));
 // console.log([undefined,undefined].join());
@@ -1951,7 +1888,6 @@
 // })
 // console.log(newTitle)
 
-
 // for ... in перебирает все КЛЮЧИ объекта
 // const films = {
 //     title1: 'die',
@@ -1979,7 +1915,7 @@
 
 // for (let key in rabbit) {
 //   if(rabbit.hasOwnProperty(key)){
-//   console.log( key + " = " + rabbit[key] ); 
+//   console.log( key + " = " + rabbit[key] );
 //   }// jumps = true, eats = true
 // }
 
@@ -1993,19 +1929,19 @@
 //     "выполненные": 44,
 //   }
 
-  // console.log(Object.keys(films))// [
-  // //   'title1',
-  // //   'title2',
-  // //   'title3',
-  // //   'задачи на сегодня',
-  // //   'просроченные',
-  // //   'выполненные'
-  // // ]
+// console.log(Object.keys(films))// [
+// //   'title1',
+// //   'title2',
+// //   'title3',
+// //   'задачи на сегодня',
+// //   'просроченные',
+// //   'выполненные'
+// // ]
 
-  // console.log(Object.keys(films).join(','))// title1,title2,title3,задачи на сегодня,просроченные,выполненные
+// console.log(Object.keys(films).join(','))// title1,title2,title3,задачи на сегодня,просроченные,выполненные
 
-  // console.log(Object.values(films).join(','))//die,die hard,die hard2,3,5876,44
-  // console.log(Object.entries(films).join(','))
+// console.log(Object.values(films).join(','))//die,die hard,die hard2,3,5876,44
+// console.log(Object.entries(films).join(','))
 // console.log(Object.entries(films).map((film)=>{return film[0] + ' - ' +film[1]}).join(', '))
 
 // const films2 = {
@@ -2018,10 +1954,6 @@
 
 // console.log(Object.assign(xxx, films, films2))
 
-
-
-
-
 // const members = [['Саша', 'Игорь'],['Лидия', 'Сергей']];
 
 // members.forEach(()=>{//не передали сюда параметр
@@ -2029,7 +1961,6 @@
 //     console.log(member);
 //   })
 // })
-
 
 // members.forEach((members)=>{..лучше изменить members в параметрах и на след строке
 //   members.forEach((member)=>{
@@ -2043,39 +1974,37 @@
 //   })
 // })// Саша Игорь Лидия Сергей
 
+// members.forEach((member)=>{
+//   console.log(member);
+// })//[ 'Саша', 'Игорь' ] [ 'Лидия', 'Сергей' ]
 
-  // members.forEach((member)=>{
-  //   console.log(member);
-  // })//[ 'Саша', 'Игорь' ] [ 'Лидия', 'Сергей' ]
+// // замыкание
+// function xxx(){
+//   let a =0
+//   return function yyy(){
+//     a+=1;
+//     return a;
+//   }
+// }
 
-  // // замыкание
-  // function xxx(){
-  //   let a =0
-  //   return function yyy(){
-  //     a+=1;
-  //     return a;
-  //   }
-  // }
+// const b = xxx();
+// console.log(b());
+// console.log(b());
+// console.log(b());
 
-  // const b = xxx();
-  // console.log(b());
-  // console.log(b());
-  // console.log(b());
+// генератор случ чисел
+// const random = (min,max) =>{
+//   return Math.floor(Math.random()*(max-min+1))+min
+// }
+// console.log(random(20,50))
 
-  // генератор случ чисел
-  // const random = (min,max) =>{
-  //   return Math.floor(Math.random()*(max-min+1))+min
-  // }
-  // console.log(random(20,50))
-
-
-  // function random(min, max){
-  //   const lower =Math.trunc(Math.min(Math.abs(min),Math.abs(max)))
-  //   // console.log(lower);
-  //   const upper =Math.trunc(Math.max(Math.abs(min),Math.abs(max)))
-  //   // console.log(upper);
-  //   return Math.trunc(Math.random()*(upper-lower+1))+lower;
-  // }
+// function random(min, max){
+//   const lower =Math.trunc(Math.min(Math.abs(min),Math.abs(max)))
+//   // console.log(lower);
+//   const upper =Math.trunc(Math.max(Math.abs(min),Math.abs(max)))
+//   // console.log(upper);
+//   return Math.trunc(Math.random()*(upper-lower+1))+lower;
+// }
 
 // console.log(random(88.9, -11.6));
 
@@ -2109,7 +2038,6 @@
 //   return Math.trunc(Math.random()*(upper-lower+1)+lower)
 // }
 
-
 // function getRandomId(min,max){
 //   let massNumber =[];
 //   return function () {
@@ -2132,8 +2060,6 @@
 // console.log(x());
 // console.log(x());
 
-
-
 //c замыканием можно создать разные счетчики
 // function x(){
 //   let n = 0;
@@ -2146,7 +2072,6 @@
 // console.log(xx());
 // console.log(xx());
 // console.log(xx());
-
 
 // //только 1 счетчик
 // let x = 0;
@@ -2167,7 +2092,6 @@
 // }
 // console.log(third)// {1:25, 25:'раз', title1: 'die', 'выполненные': 44,[Symbol('раз два три')]: 30 }
 
-
 // function x(...param) {
 //   console.log(param);
 // }
@@ -2184,7 +2108,6 @@
 // const xx = [...m, 6,7,8]
 // console.log(xx);
 
-
 // const obj = {nik: 'Yukka', age: 25, whoAmI: 'cat',title1: 'die', 25:'раз',[Symbol('раз два три')]:44, "выполненные": 44,
 // 1: 25,};
 // console.log(Object.keys(obj));
@@ -2192,12 +2115,11 @@
 
 // function hello({nik}) {console.log(nik)} hello(obj)
 
-
 // // мемоизация
 // const memo = (cb) => {//передается incr
 //   const  map = new Map();//созд коллекцию map(ключ-значение). Ключ абсол любое знач
 //   return (key)=>{//внутренняя функция в нее передаем  ключ
-//     if(!map.has(key)) {// если у нас нет ключа, то 
+//     if(!map.has(key)) {// если у нас нет ключа, то
 //       map.set(key, cb(key));//записываем в коллекцию ключ и значение cb(key)
 //     }
 //     return map.get(key); //если есть ключ, то  возвращаем значение по ключу
@@ -2213,7 +2135,6 @@
 // console.log(n(5));//6
 
 // console.log('widget with id'.codePointAt(0))
-
 
 // [1,2,3,4].forEach((value,index,array)=>{console.log(array)})
 
@@ -2231,10 +2152,11 @@
 // const ready = document.querySelector('div');
 // console.log(ready)
 
-let makeElement = function(tagName, className, text, picture, alt) {//универсальная f для добавления элементов
+let makeElement = function (tagName, className, text, picture, alt) {
+  //универсальная f для добавления элементов
   let element = document.createElement(tagName);
   element.classList.add(className);
-  if(text){
+  if (text) {
     element.textContent = text;
   }
   // if(picture&&true){
@@ -2242,7 +2164,7 @@ let makeElement = function(tagName, className, text, picture, alt) {//униве
   //   element.alt = alt;
   // }
   return element;
-}
+};
 // const cardList = document.querySelector('.products');//список ul
 // const listItem = makeElement('li', 'product');//делаем li
 // cardList.appendChild(listItem);//добавляем li в ul
@@ -2300,8 +2222,6 @@ let makeElement = function(tagName, className, text, picture, alt) {//униве
 //   ul.appendChild(z)
 // }
 
-
-
 // const ete = function getString() {
 //   console.log('Привет');
 //   return 2;
@@ -2313,44 +2233,44 @@ let makeElement = function(tagName, className, text, picture, alt) {//униве
 //   return 2;
 // }())
 
-  // window.addEventListener('keydown', function(evt){
-  //   if(evt.key==='c'){
-  //     console.log('уууууу')
-  //   }
-  // })
+// window.addEventListener('keydown', function(evt){
+//   if(evt.key==='c'){
+//     console.log('уууууу')
+//   }
+// })
 
-  // window.addEventListener('keydown', function(evt){
-  //   if(evt.code==='KeyZ'){
-  //     console.log('раз-два-три')
-  //   }
-  // })
+// window.addEventListener('keydown', function(evt){
+//   if(evt.code==='KeyZ'){
+//     console.log('раз-два-три')
+//   }
+// })
 
-  // window.addEventListener('keydown', function(evt){
-  //   if(evt.code==='NumpadDivide'){
-  //     console.log('абв')
-  //   }
-  // })
+// window.addEventListener('keydown', function(evt){
+//   if(evt.code==='NumpadDivide'){
+//     console.log('абв')
+//   }
+// })
 
-  // window.addEventListener('keydown', function(evt){
-  //   if(evt.code==='F1'){
-  //     console.log('вовополррл')
-  //   }
-  // })
+// window.addEventListener('keydown', function(evt){
+//   if(evt.code==='F1'){
+//     console.log('вовополррл')
+//   }
+// })
 
-  // const items = document.querySelectorAll('li');
-  // const array = Array.prototype.slice.call(items);
-  // console.log(array);
-  // const array2 = array.filter((element)=>{return element.dataset.food2})
-  // console.log(array2[0].innerHTML);
+// const items = document.querySelectorAll('li');
+// const array = Array.prototype.slice.call(items);
+// console.log(array);
+// const array2 = array.filter((element)=>{return element.dataset.food2})
+// console.log(array2[0].innerHTML);
 
-  // const items = document.querySelectorAll('li');
-  // console.log(items[0].dataset.food)//1541
-  // console.log(typeof(items[0].dataset.food))//string
+// const items = document.querySelectorAll('li');
+// console.log(items[0].dataset.food)//1541
+// console.log(typeof(items[0].dataset.food))//string
 
 //   const dataAttrs = document.querySelectorAll('li');
 //   console.log(dataAttrs);
 //   let second = [];
-  
+
 //   let xxx = function(){
 //     for (let i = 0; i < dataAttrs.length-1; i++) {
 //     const dataAttr = Array.from(dataAttrs[i].attributes);
@@ -2364,14 +2284,14 @@ let makeElement = function(tagName, className, text, picture, alt) {//униве
 //     second.push(y);
 //   }
 //   console.log(second);
-  
+
 // }
 // xxx();
 
-//   const dataAttrs = document.querySelectorAll('li');//коллекция 
+//   const dataAttrs = document.querySelectorAll('li');//коллекция
 //   console.log(dataAttrs);
 //   let second = [];//пустой массив
-  
+
 //   let xxx = function(){
 //     dataAttrs.forEach(element=>{//перебираем элементы коллекции
 //     const dataAttr = Array.from(element.attributes);//создает массив из дата-атрибутов
@@ -2413,7 +2333,6 @@ let makeElement = function(tagName, className, text, picture, alt) {//униве
 const displayTooltip = (e) => {
   const trigger = e.target;
   const tooltip = trigger.querySelector("[role=tooltip]");
-  
 
   const { x, y, width, height } = trigger.getBoundingClientRect();
   tooltip.style.left = `${Math.floor(x + width / 2)}px`;
@@ -2451,8 +2370,6 @@ tooltips.forEach((trigger) => {
 //   document.getElementById('test2').innerHTML ='Здесь мы набираем:' + a.value
 // })
 
-
-
 // let textarea = document.getElementById('test3');
 // let textareaButton = document.querySelector('.textarea-button');
 // let charCounter = document.querySelector('.char-counter');
@@ -2466,39 +2383,41 @@ tooltips.forEach((trigger) => {
 // })
 
 //создание коммента
-let commentForm = document.querySelector('.form');//тег form
-let commentField = document.getElementById('test3');//textarea
-let commentList = document.querySelector('.products');//ul, куда будут добавляться li-шки 
-let charCounter = document.querySelector('.char-counter');//счетчик 
-let textareaButton = document.querySelector('.textarea-button');//кнопка отправки формы
+let commentForm = document.querySelector(".form"); //тег form
+let commentField = document.getElementById("test3"); //textarea
+let commentList = document.querySelector(".products"); //ul, куда будут добавляться li-шки
+let charCounter = document.querySelector(".char-counter"); //счетчик
+let textareaButton = document.querySelector(".textarea-button"); //кнопка отправки формы
 
-if(commentField.value.length == 0){
+if (commentField.value.length == 0) {
   textareaButton.disabled = true;
 } else {
   textareaButton.disabled = false;
 }
 //счетчик событий submit/нажимаем кнопку отправки, если соответствует , то создается новый коммент
-commentForm.addEventListener('submit', function(evt){
-evt.preventDefault();// если убрать, то данные отправятся на сервер, а не будут в виде комментариев добавляться
-let newComment =document.createElement('li');
-newComment.classList.add('new-comment');
-newComment.textContent = commentField.value;
-commentField.value ='';
-commentList.append(newComment);
-charCounter.textContent=0;
-const data = [...document.querySelectorAll(`input[name='someCheckbox']:checked`)]
-console.log(data);
-})
+commentForm.addEventListener("submit", function (evt) {
+  evt.preventDefault(); // если убрать, то данные отправятся на сервер, а не будут в виде комментариев добавляться
+  let newComment = document.createElement("li");
+  newComment.classList.add("new-comment");
+  newComment.textContent = commentField.value;
+  commentField.value = "";
+  commentList.append(newComment);
+  charCounter.textContent = 0;
+  const data = [
+    ...document.querySelectorAll(`input[name='someCheckbox']:checked`),
+  ];
+  console.log(data);
+});
 
 //счетчик событий input/счетчик кол-ва символов в поле/валидность
-commentField.addEventListener('input', function(){
-  charCounter.innerHTML =  commentField.value.length;
-  if(commentField.value.length<5 || commentField.value.length>300){
+commentField.addEventListener("input", function () {
+  charCounter.innerHTML = commentField.value.length;
+  if (commentField.value.length < 5 || commentField.value.length > 300) {
     textareaButton.disabled = true;
   } else {
     textareaButton.disabled = false;
   }
-})
+});
 
 // const age= [16,20,30,4,50]
 // console.log(age.includes(20))//true
@@ -2506,90 +2425,90 @@ commentField.addEventListener('input', function(){
 // const age= [16,20,30,4,50]
 // console.log(age.some((value)=>value<2))
 
+// //это привязка к разметке, селектор всегда будет возвращать 1 поле ввода, даже при смене на 2 поле
+// const showInputValue1 = document.querySelector(`input[name='someCheckbox'][checked]`).value;
+// console.log(showInputValue1);
+// //используем псевдоклассы, чтобы было найдено поле выбранное в данный момент
+// const showInputValue2 = document.querySelector(`input[name='someCheckbox']:checked`).value;
+// console.log(showInputValue2);
 
-  // //это привязка к разметке, селектор всегда будет возвращать 1 поле ввода, даже при смене на 2 поле
-  // const showInputValue1 = document.querySelector(`input[name='someCheckbox'][checked]`).value;
-  // console.log(showInputValue1);
-  // //используем псевдоклассы, чтобы было найдено поле выбранное в данный момент
-  // const showInputValue2 = document.querySelector(`input[name='someCheckbox']:checked`).value;
-  // console.log(showInputValue2);
+// не удалится элемент из dom; статичная коллекция
+// const collection1 = document.querySelectorAll('.product');
+// console.log(collection1);
+// console.log(collection1[0].remove());
+// console.log(collection1[0]);
 
-  // не удалится элемент из dom; статичная коллекция
-  // const collection1 = document.querySelectorAll('.product');
-  // console.log(collection1);
-  // console.log(collection1[0].remove());
-  // console.log(collection1[0]);
+// //удалится элемент из dom; живая коллекция
+// const col = document.querySelector('.products');
+// const collection2 = col.children;
+// console.log(collection2[2].remove())
+// console.log(collection2[2]);
 
-  // //удалится элемент из dom; живая коллекция
-  // const col = document.querySelector('.products');
-  // const collection2 = col.children;
-  // console.log(collection2[2].remove())
-  // console.log(collection2[2]);
+// const docFragment = document.querySelector('#template').content;//нашли document-fragment
+// const text = docFragment.querySelector('.p-template');//нашли ту строку , которую надо заполнить
+// text.textContent = " Вместе весело шагать";// вставляем текст
+// const main = document.querySelector("main")//нашли место, куда вставляем
+// main.appendChild(docFragment)//вставляем
 
-  // const docFragment = document.querySelector('#template').content;//нашли document-fragment
-  // const text = docFragment.querySelector('.p-template');//нашли ту строку , которую надо заполнить
-  // text.textContent = " Вместе весело шагать";// вставляем текст
-  // const main = document.querySelector("main")//нашли место, куда вставляем
-  // main.appendChild(docFragment)//вставляем
+const container = document.querySelector(".pool");
+const poolTemplate = document.querySelector("#pool-template").content; //нашли document-fragment
+const elementPool = poolTemplate.querySelector(".div-pool"); //нашли ту строку, которую надо заполнить
+for (let i = 0; i <= 10; i++) {
+  let z = elementPool.cloneNode(true); //клонируем elementpool со всеми внутренностями
+  z.children[0].textContent = i; //в ребенка elementpool вставляем текст
+  container.appendChild(z); // присоединяем в цикле клонированную форму
+}
+//слайдер
+const forward = document.querySelector(".forward");
+const back = document.querySelector(".back");
+forward.addEventListener("click", function () {
+  container.append(container.children[0]); //первый в конец(слайдер такой)
+  container.children[0].style.backgroundColor = "red";
+  container.children[container.children.length - 1].style.backgroundColor =
+    "white";
+});
+back.addEventListener("click", function () {
+  container.prepend(container.children[container.children.length - 1]); //последний в начало
+});
 
-
-  const container = document.querySelector('.pool')
-  const poolTemplate = document.querySelector('#pool-template').content;//нашли document-fragment
-  const elementPool = poolTemplate.querySelector('.div-pool');//нашли ту строку, которую надо заполнить
-  for(let i=0; i<=10; i++) {
-    let z = elementPool.cloneNode(true);//клонируем elementpool со всеми внутренностями
-    z.children[0].textContent= i;//в ребенка elementpool вставляем текст
-    container.appendChild(z);// присоединяем в цикле клонированную форму
-  }
-  //слайдер
-  const forward = document.querySelector('.forward')
-  const back = document.querySelector('.back')
-  forward.addEventListener('click', function(){
-    container.append(container.children[0])//первый в конец(слайдер такой)
-    container.children[0].style.backgroundColor = 'red';
-    container.children[container.children.length-1].style.backgroundColor = 'white';
-  })
-  back.addEventListener('click', function(){
-    container.prepend(container.children[container.children.length-1])//последний в начало
-  })
-
-  //слайдер посредством 
-  const products = document.querySelector('.products');
-  //живая коллекция
-  // const liveProducts = products.children;
-  // liveProducts[0].remove();//один удалили
-  // console.log(liveProducts)//2
+//слайдер посредством
+const products = document.querySelector(".products");
+//живая коллекция
+// const liveProducts = products.children;
+// liveProducts[0].remove();//один удалили
+// console.log(liveProducts)//2
 //неживая коллекция
-  // const liveProducts = products.querySelectorAll('.product');
-  // liveProducts[0].remove();//один удалили
-  // console.log(liveProducts)//3 без изменений
-  const pForward = document.querySelector('.p-forward')
-  const pBack = document.querySelector('.p-back')
-  pForward.addEventListener('click', function(){
-    products.append(products.children[0])//первый в конец(слайдер такой)
-  })
-  pBack.addEventListener('click', function(){
-    products.prepend(products.children[products.children.length-1])//последний в начало
-  })
+// const liveProducts = products.querySelectorAll('.product');
+// liveProducts[0].remove();//один удалили
+// console.log(liveProducts)//3 без изменений
+const pForward = document.querySelector(".p-forward");
+const pBack = document.querySelector(".p-back");
+pForward.addEventListener("click", function () {
+  products.append(products.children[0]); //первый в конец(слайдер такой)
+});
+pBack.addEventListener("click", function () {
+  products.prepend(products.children[products.children.length - 1]); //последний в начало
+});
 
-  products.addEventListener('click', (evt)=>{
-    if(evt.target.nodeName === 'LI') {
-      if(!evt.target.classList.contains('block')) {
-        evt.target.classList.add('block');
-      } else {
-        evt.target.classList.remove('block');
+products.addEventListener("click", (evt) => {
+  if (evt.target.nodeName === "LI") {
+    if (!evt.target.classList.contains("block")) {
+      evt.target.classList.add("block");
+    } else {
+      evt.target.classList.remove("block");
     }
-  }})
+  }
+});
 
-  //ресайз textarea
-const textarea = document.querySelector('#test3');
-textarea.addEventListener('keydown', resize);
+//ресайз textarea
+const textarea = document.querySelector("#test3");
+textarea.addEventListener("keydown", resize);
 
 function resize() {
   let el = this;
-  setTimeout(function() {
-    el.style.cssText = 'height:auto; padding:0';
-    el.style.cssText = 'height:' + el.scrollHeight + 'px';
+  setTimeout(function () {
+    el.style.cssText = "height:auto; padding:0";
+    el.style.cssText = "height:" + el.scrollHeight + "px";
   }, 1);
 }
 
@@ -2599,9 +2518,9 @@ function resize() {
 // };
 // console.dir(x)
 
-const pools = document.querySelectorAll('.pools');
-const nextPool = document.querySelector('.next-pool');
-const backPool = document.querySelector('.back-pool');
+const pools = document.querySelectorAll(".pools");
+const nextPool = document.querySelector(".next-pool");
+const backPool = document.querySelector(".back-pool");
 let elements1 = pools[0].children;
 
 // добавить все сразу
@@ -2611,39 +2530,37 @@ let elements1 = pools[0].children;
 //   }})
 
 // добавить по одной цифре
-nextPool.addEventListener('click', function(){
+nextPool.addEventListener("click", function () {
   if (elements1.length) {
-      pools[1].append(elements1[0])
-       if (elements1.length && elements1[0] !== undefined) {
-        nextPool.disabled = false;
-        backPool.disabled = false;
-      }
-       else {
-        nextPool.disabled = true;
-      }
+    pools[1].append(elements1[0]);
+    if (elements1.length && elements1[0] !== undefined) {
+      nextPool.disabled = false;
+      backPool.disabled = false;
+    } else {
+      nextPool.disabled = true;
+    }
   }
-})
+});
 
 //удалить все
 let elements2 = pools[1].children;
-backPool.addEventListener('click', function(){
+backPool.addEventListener("click", function () {
   //1 способ
   // pools[1].remove();//удаляет все в том числе и родителя  из разметки
   //2 способ
   // while (elements2.length) {
-    // pools[1].removeChild(elements2[0]);//работает 
-    // elements2[0].parentNode.removeChild(elements2[0]);//работает
+  // pools[1].removeChild(elements2[0]);//работает
+  // elements2[0].parentNode.removeChild(elements2[0]);//работает
   // }
-  //3 способ 
-  for (let i = elements2.length-1; i>=0; i--){
-    pools[1].removeChild(elements2[elements2.length-1]);
+  //3 способ
+  for (let i = elements2.length - 1; i >= 0; i--) {
+    pools[1].removeChild(elements2[elements2.length - 1]);
     // elements2[elements2.length-1].parentNode.removeChild(elements2[elements2.length-1])
   }
-  console.log(elements1[0])
-  }
-)
-console.log(elements2)
-console.log(elements1)
+  console.log(elements1[0]);
+});
+console.log(elements2);
+console.log(elements1);
 // backPool.addEventListener('click', function(){
 //   if (elements2[0] !== undefined) {
 //   nextPool.disabled = false;
@@ -2654,20 +2571,20 @@ console.log(elements1)
 //     backPool.disabled = true;
 //   }
 // })
-let newHeader = document.createElement('h2');
+let newHeader = document.createElement("h2");
 newHeader.innerText = "Новый заголовок";
-pools[0].insertBefore(newHeader,null);//вставит в контейнере ul в самом конце всех li, так как есть null 
+pools[0].insertBefore(newHeader, null); //вставит в контейнере ul в самом конце всех li, так как есть null
 
-pools[0].replaceChild(elements1[0],elements1[3])
+pools[0].replaceChild(elements1[0], elements1[3]);
 
-let x = [1,2,3,4,5]
+let x = [1, 2, 3, 4, 5];
 let y = x[2];
 let v = x[0];
 x[0] = y;
 x[2] = v;
-console.log(x)
+console.log(x);
 
-if(pools[0].contains(elements1[3])) {
+if (pools[0].contains(elements1[3])) {
   elements1[3].style.color = "red";
 }
 
@@ -2701,173 +2618,179 @@ if(pools[0].contains(elements1[3])) {
 // }
 // cont.appendChild(fragment)
 
-let searchable =[
-  'Elastic',
-  'PHP',
-  'Java',
-  'JS',
-  'Coding something',
-  'About CSS',
-  'How to coding',
-  'Some other item',
-  'C++',
-  'Concat'
-]
-const searchInput = document.getElementById('search');
-const searchWrapper = document.querySelector('.wrapper');
-const resultsWrapper = document.querySelector('.results');
+let searchable = [
+  "Elastic",
+  "PHP",
+  "Java",
+  "JS",
+  "Coding something",
+  "About CSS",
+  "How to coding",
+  "Some other item",
+  "C++",
+  "Concat",
+];
+const searchInput = document.getElementById("search");
+const searchWrapper = document.querySelector(".wrapper");
+const resultsWrapper = document.querySelector(".results");
 
-
-searchInput.addEventListener('keyup', (e)=>{
-  let results=[];
+searchInput.addEventListener("keyup", (e) => {
+  let results = [];
   let inputs = searchInput.value;
-  if(inputs.length) {
-    results = searchable.filter((item)=>{return item.toLowerCase().includes(inputs.toLowerCase())}).slice(0,5);
+  if (inputs.length) {
+    results = searchable
+      .filter((item) => {
+        return item.toLowerCase().includes(inputs.toLowerCase());
+      })
+      .slice(0, 5);
   }
-  renderResults(results)
-})
+  renderResults(results);
+});
 
-function renderResults(results){
-  if(!results.length) {
-    return searchWrapper.classList.remove('show')
+function renderResults(results) {
+  if (!results.length) {
+    return searchWrapper.classList.remove("show");
   }
-  let content = results.map((item)=>{
-    return `<li><a href=''>${item}</a></li>`
-  }).join('');
-  searchWrapper.classList.add('show');
+  let content = results
+    .map((item) => {
+      return `<li><a href=''>${item}</a></li>`;
+    })
+    .join("");
+  searchWrapper.classList.add("show");
   resultsWrapper.innerHTML = `<ul>${content}</ul>`;
 }
 
-  document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') {
-      searchField();
-  }})
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    searchField();
+  }
+});
 
-  document.addEventListener('click', (evt)=>{
-    if (!searchWrapper.contains(evt.target)) {
-      searchField();
-      }
-    });
+document.addEventListener("click", (evt) => {
+  if (!searchWrapper.contains(evt.target)) {
+    searchField();
+  }
+});
 
-  function searchField() {
-    searchInput.value='';
-    searchWrapper.classList.remove('show')
+function searchField() {
+  searchInput.value = "";
+  searchWrapper.classList.remove("show");
 }
 
+const dayscount = document.getElementById("dayscount");
+const daysoutput = document.getElementById("daysoutput");
+const form = document.querySelector(".form");
+daysoutput.value = dayscount.value;
+form.addEventListener("input", () => {
+  daysoutput.value = dayscount.value;
+});
 
+//
+// const elements = document.querySelectorAll('[name]')//находит все элем с атрибутом name
+// if(window.localStorage){
+//   for (let element of elements) {
+//     setPreSavedValue(element);
+//     element.addEventListener('keyup', saveValueToStorage)
+//   }
+// }
 
-  const dayscount = document.getElementById('dayscount');
-  const daysoutput = document.getElementById('daysoutput');
-  const form = document.querySelector('.form');
-  daysoutput.value=dayscount.value;
-  form.addEventListener('input', ()=>{daysoutput.value=dayscount.value;
-  })
+// function saveValueToStorage({target: {value,name}}) {
+//   localStorage.setItem(name,value);
+// }
 
+// function setPreSavedValue(element) {
+//   const savedValue =  localStorage.getItem(element.name);
+//   if(savedValue){
+//     element.value=savedValue;
+//   }
+// }
 
-  //
-  // const elements = document.querySelectorAll('[name]')//находит все элем с атрибутом name
-  // if(window.localStorage){
-  //   for (let element of elements) {
-  //     setPreSavedValue(element);
-  //     element.addEventListener('keyup', saveValueToStorage)
-  //   }
-  // }
+// if(window.localStorage){
+//   const elements = document.querySelectorAll('[name]')//находит все элем с атрибутом name
+//   for (let element of elements) {
+//     const savedValue =  localStorage.getItem(element.name);
+//   if(savedValue){
+//     element.value=savedValue;
+//   }
+//     element.addEventListener('keyup', ({target: {value,name}})=>{localStorage.setItem(name,value);})
+//   }}
 
-  // function saveValueToStorage({target: {value,name}}) {
-  //   localStorage.setItem(name,value);
-  // }
-
-  // function setPreSavedValue(element) {
-  //   const savedValue =  localStorage.getItem(element.name);
-  //   if(savedValue){
-  //     element.value=savedValue;
-  //   }
-  // }
-
-  // if(window.localStorage){
-  //   const elements = document.querySelectorAll('[name]')//находит все элем с атрибутом name
-  //   for (let element of elements) {
-  //     const savedValue =  localStorage.getItem(element.name);
-  //   if(savedValue){
-  //     element.value=savedValue;
-  //   }
-  //     element.addEventListener('keyup', ({target: {value,name}})=>{localStorage.setItem(name,value);})
-  //   }}
-
-   if(window.localStorage){
-    const elements = document.querySelectorAll('textarea[name]')//находит все элем с атрибутом name
-    for (let element of elements) {
-      let name = element.getAttribute('name');
-      element.value =localStorage.getItem(name);//получаем сохраненное в localStorage значение 
-      element.addEventListener('keyup', ()=>{localStorage.setItem(name, element.value)})// сохраняем
-    }
+if (window.localStorage) {
+  const elements = document.querySelectorAll("textarea[name]"); //находит все элем с атрибутом name
+  for (let element of elements) {
+    let name = element.getAttribute("name");
+    element.value = localStorage.getItem(name); //получаем сохраненное в localStorage значение
+    element.addEventListener("keyup", () => {
+      localStorage.setItem(name, element.value);
+    }); // сохраняем
   }
+}
 
-  const modalCont = document.querySelector('.modal-container');
-  const modal = document.querySelector('.modal-content');
-  const closeBtn = document.querySelector('.modal-close-button');
-  const btnClick = document.querySelector('.button-click');
+const modalCont = document.querySelector(".modal-container");
+const modal = document.querySelector(".modal-content");
+const closeBtn = document.querySelector(".modal-close-button");
+const btnClick = document.querySelector(".button-click");
 
-  modalCont.addEventListener('click', (evt)=>{
-    console.log(evt.target);
-    if (!modal.contains(evt.target)) {
-      closeModal();
-      }
-    });
-
-  btnClick.addEventListener('click', (evt)=>{
-    evt.preventDefault();//чтобы не было перехода по ссылке!, но далее добавлялись классы
-    modalCont.classList.remove('modal-container-close');
-    document.body.classList.add('no-scroll');
-  })
-
-  closeBtn.addEventListener('click', (evt)=>{
-    evt.preventDefault();
+modalCont.addEventListener("click", (evt) => {
+  console.log(evt.target);
+  if (!modal.contains(evt.target)) {
     closeModal();
-  })
-
-  document.addEventListener('keydown', (evt)=>{
-    if(evt.key === 'Escape') {
-      closeModal();
-    }
-  });
-
-  function closeModal(){
-    modalCont.classList.add('modal-container-close'); 
-    document.body.classList.remove('no-scroll');
   }
+});
 
+btnClick.addEventListener("click", (evt) => {
+  evt.preventDefault(); //чтобы не было перехода по ссылке!, но далее добавлялись классы
+  modalCont.classList.remove("modal-container-close");
+  document.body.classList.add("no-scroll");
+});
 
-  // document.addEventListener('scroll', (evt)=>{
-  //   console.log(evt.cancelable);
-  //   evt.preventDefault()
-  // })
+closeBtn.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  closeModal();
+});
 
-  const para = document.querySelector('.para');
-  const but = document.querySelector('.but');
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    closeModal();
+  }
+});
 
-  but.addEventListener('click', (evt)=>{
-    console.log('обработчик контекстного меню');
-    evt.preventDefault();
-})
-  para.addEventListener('mousedown', (evt)=>{
-    if(evt.target.classList.contains('but')) {
-      console.log('обработчик параграфа')}
-  })
+function closeModal() {
+  modalCont.classList.add("modal-container-close");
+  document.body.classList.remove("no-scroll");
+}
 
-  const selectedCategoryContainer = document.querySelector('#selected-category')
-  const fieldsetCatalog = document.querySelector('.ppppp')
-  function onFilterChange(evt) {
-    if(evt.target.matches('input[type="radio"]')) {
-      selectedCategoryContainer.textContent =  evt.target.value;
-      if (evt.target.closest('.discount-100')){
-        selectedCategoryContainer.classList.add('special');
-      } else {
-        selectedCategoryContainer.classList.remove('special');
-      }
+// document.addEventListener('scroll', (evt)=>{
+//   console.log(evt.cancelable);
+//   evt.preventDefault()
+// })
+
+const para = document.querySelector(".para");
+const but = document.querySelector(".but");
+
+but.addEventListener("click", (evt) => {
+  console.log("обработчик контекстного меню");
+  evt.preventDefault();
+});
+para.addEventListener("mousedown", (evt) => {
+  if (evt.target.classList.contains("but")) {
+    console.log("обработчик параграфа");
+  }
+});
+
+const selectedCategoryContainer = document.querySelector("#selected-category");
+const fieldsetCatalog = document.querySelector(".ppppp");
+function onFilterChange(evt) {
+  if (evt.target.matches('input[type="radio"]')) {
+    selectedCategoryContainer.textContent = evt.target.value;
+    if (evt.target.closest(".discount-100")) {
+      selectedCategoryContainer.classList.add("special");
+    } else {
+      selectedCategoryContainer.classList.remove("special");
     }
   }
-  fieldsetCatalog.addEventListener('change', onFilterChange);
+}
+fieldsetCatalog.addEventListener("change", onFilterChange);
 
 // window.addEventListener('load', ()=>{
 //   console.log('Загрузка страницы')
@@ -2875,17 +2798,15 @@ function renderResults(results){
 
 // para.dataset.rest = "xxx"
 
-
 // const regexp = /Script/
 // console.log(regexp.test('JavaScript'))
 
-  // let lowerCaseTags;
-  // const hasUniqueTags = ()=>{
-  //   lowerCaseTags = ["A","a","C","b"].map((tag)=>{ return tag.toLowerCase()})
-  //     return lowerCaseTags === new Set(lowerCaseTags);
-  // }
-  // console.log(hasUniqueTags())//Set(3) {'a', 'c', 'b'}
-
+// let lowerCaseTags;
+// const hasUniqueTags = ()=>{
+//   lowerCaseTags = ["A","a","C","b"].map((tag)=>{ return tag.toLowerCase()})
+//     return lowerCaseTags === new Set(lowerCaseTags);
+// }
+// console.log(hasUniqueTags())//Set(3) {'a', 'c', 'b'}
 
 // let zz;
 //   const temp = {};
@@ -2901,130 +2822,183 @@ function renderResults(results){
 //   console.log(zz)//false, то есть во временном массиве есть повторяющееся свойство
 //   console.log(temp)//a: true; n:true !! До первого повтора; на индексе 2 выходим из функции
 
-  const VALID_SYMBOLS =/[abc]/;//допустимы только буквы а, б, с
-  const tags = ["a", "b", "c","d"]
-  const n = tags.every((tag) => VALID_SYMBOLS.test(tag));
+const VALID_SYMBOLS = /[abc]/; //допустимы только буквы а, б, с
+const tags = ["a", "b", "c", "d"];
+const n = tags.every((tag) => VALID_SYMBOLS.test(tag));
 
-  console.log(n);
+console.log(n);
 
-  const sel= document.getElementById('sel');
+const sel = document.getElementById("sel");
 
-  sel.addEventListener('input', ()=>{
-    but.style.backgroundColor = sel.value;
-  })
+sel.addEventListener("input", () => {
+  but.style.backgroundColor = sel.value;
+});
 
-  const inpSize = document.querySelector('.size-letter');
-  const paragraf = document.querySelector('.color');
-  const pixels = document.querySelector('.pixels');
+const inpSize = document.querySelector(".size-letter");
+const paragraf = document.querySelector(".color");
+const pixels = document.querySelector(".pixels");
 
-  inpSize.addEventListener('input', ()=>{
-    pixels.textContent = inpSize.value;
-    paragraf.style.fontSize = inpSize.value+'px';
-    paragraf.style.lineHeight = inpSize.value+'px';
-    pixels.style.fontSize = inpSize.value+'px';
-  })
+inpSize.addEventListener("input", () => {
+  pixels.textContent = inpSize.value;
+  paragraf.style.fontSize = inpSize.value + "px";
+  paragraf.style.lineHeight = inpSize.value + "px";
+  pixels.style.fontSize = inpSize.value + "px";
+});
 
-  const password = document.querySelector('.password');
-  const showParol = document.querySelector('.svg1');
-  const closeParol = document.querySelector('.svg2');
-  showParol.addEventListener("click", ()=>{
-    if(closeParol.classList.contains('hidden')) {
-      closeParol.classList.remove('hidden');
-      showParol.classList.add('hidden');
-      password.type="text";
+const password = document.querySelector(".password");
+const showParol = document.querySelector(".svg1");
+const closeParol = document.querySelector(".svg2");
+showParol.addEventListener("click", () => {
+  if (closeParol.classList.contains("hidden")) {
+    closeParol.classList.remove("hidden");
+    showParol.classList.add("hidden");
+    password.type = "text";
+  }
+});
+closeParol.addEventListener("click", () => {
+  if (showParol.classList.contains("hidden")) {
+    showParol.classList.remove("hidden");
+    closeParol.classList.add("hidden");
+    password.type = "password";
+  }
+});
+
+if (window.localStorage) {
+  const passElements = document.querySelectorAll("input[type]"); //находит все элем с атрибутом type
+  for (let element of passElements) {
+    let name = element.getAttribute("name");
+    element.value = localStorage.getItem(name); //получаем сохраненное в localStorage значение
+    element.addEventListener("keyup", () => {
+      localStorage.setItem(name, element.value);
+    }); // сохраняем
+  }
+}
+
+const smallLetters =
+  "йцукенгшщзхъфывапролджэячсмитьбюqwertyuiopasdfghjklzxcvbnm";
+const sigLetters = "ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮQWERTYUIOPASDFGHJKLZXCVBNM";
+const digits = "0123456789";
+const specials = "!@#$%^&*()_-+=|/.,?~{}[]";
+
+const sequrityBar = document.querySelector(".security-bar");
+
+password.addEventListener("input", () => {
+  const passValue = password.value;
+
+  let isSmallLetters = false;
+  let isBigLetters = false;
+  let isDigits = false;
+  let isSpecials = false;
+
+  sequrityBar.style.width = passValue.length * 10 + "%";
+
+  for (let i = 0; i < passValue.length; i++) {
+    if (!isSmallLetters && smallLetters.indexOf(passValue[i]) != -1) {
+      isSmallLetters = true;
+    } else if (!isBigLetters && sigLetters.indexOf(passValue[i]) != -1) {
+      isBigLetters = true;
+    } else if (!isDigits && digits.indexOf(passValue[i]) != -1) {
+      isDigits = true;
+    } else if (!isSpecials && specials.indexOf(passValue[i]) != -1) {
+      isSpecials = true;
     }
-  })
-  closeParol.addEventListener("click", ()=>{
-    if(showParol.classList.contains('hidden')) {
-      showParol.classList.remove('hidden');
-      closeParol.classList.add('hidden');
-      password.type="password";
+
+    let rating = 0;
+    function showRating() {
+      if (isSmallLetters) rating++;
+      if (isBigLetters) rating++;
+      if (isDigits) rating++;
+      if (isSpecials) rating++;
+      return rating;
     }
-  })
+    showRating();
 
-  // if(window.localStorage){
-  //   const passElements = document.querySelectorAll('input[type]')//находит все элем с атрибутом type
-  //   for (let element of passElements) {
-  //     let name = element.getAttribute('name');
-  //     element.value =localStorage.getItem(name);//получаем сохраненное в localStorage значение 
-  //     element.addEventListener('keyup', ()=>{localStorage.setItem(name, element.value)})// сохраняем
-  //   }
-  // }
-
-  const smallLetters='йцукенгшщзхъфывапролджэячсмитьбюqwertyuiopasdfghjklzxcvbnm'
-  const sigLetters='ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮQWERTYUIOPASDFGHJKLZXCVBNM'
-  const digits='0123456789'
-  const specials='!@#$%^&*()_-+=|/.,?~{}[]'
-
-
-  const sequrityBar = document.querySelector('.security-bar');
-
-  password.addEventListener('input', ()=>{
-    const passValue=password.value;
-
-    let isSmallLetters = false;
-    let isBigLetters = false;
-    let isDigits = false;
-    let isSpecials = false;
-
-
-    sequrityBar.style.width=passValue.length*10 + '%'
-
-    for(let i=0; i<passValue.length; i++) {
-      if(!isSmallLetters && smallLetters.indexOf(passValue[i])!=-1) {
-        isSmallLetters = true;
-      }
-       else if(!isBigLetters && sigLetters.indexOf(passValue[i])!=-1) {
-        isBigLetters = true;
-      }
-      else if(!isDigits && digits.indexOf(passValue[i])!=-1) {
-        isDigits = true;
-      }
-      else if(!isSpecials && specials.indexOf(passValue[i])!=-1) {
-        isSpecials = true;
-      }
-
-      let rating = 0;
-      function showRating() {
-        if(isSmallLetters) rating++;
-        if(isBigLetters) rating++;
-        if(isDigits) rating++;
-        if(isSpecials)  rating++;
-        return rating;
-      }
-      showRating();
-      
-      if(passValue.length<=6 && rating<=1){
-        sequrityBar.style.width= '10%';
-        sequrityBar.style.backgroundColor= '#8B0000';
-      }
-      if(passValue.length>=6 && rating>=1 && rating<=3){
-        sequrityBar.style.width= '20%';
-        sequrityBar.style.backgroundColor= '#FF0000';
-      }
-      if(passValue.length>=6 && rating>1 && rating<4){
-        sequrityBar.style.width= '50%';
-        sequrityBar.style.backgroundColor= '#FFFF00';
-      }
-      if(passValue.length<6 && rating>=3){
-        sequrityBar.style.width= '50%';
-        sequrityBar.style.backgroundColor= '#FFFF00';
-      }
-      if(passValue.length>=8 && rating<3){
-        sequrityBar.style.width= '50%';
-        sequrityBar.style.backgroundColor= '#FFFF00';
-      }
-      if(passValue.length>=8 && rating>3){
-        sequrityBar.style.width= '50%';
-        sequrityBar.style.backgroundColor= '#FFFF00';
-      }
-      if(passValue.length>=8 && rating>=3){
-        sequrityBar.style.width= '100%';
-        sequrityBar.style.backgroundColor= '#32CD32';
-      }
-      if(passValue.length>=6 && rating==4){
-        sequrityBar.style.width= '100%';
-        sequrityBar.style.backgroundColor= '#32CD32';
-      }
+    if (passValue.length <= 6 && rating <= 1) {
+      sequrityBar.style.width = "10%";
+      sequrityBar.style.backgroundColor = "#8B0000";
     }
+    if (passValue.length >= 6 && rating >= 1 && rating <= 3) {
+      sequrityBar.style.width = "20%";
+      sequrityBar.style.backgroundColor = "#FF0000";
+    }
+    if (passValue.length >= 6 && rating > 1 && rating < 4) {
+      sequrityBar.style.width = "50%";
+      sequrityBar.style.backgroundColor = "#FFFF00";
+    }
+    if (passValue.length < 6 && rating >= 3) {
+      sequrityBar.style.width = "50%";
+      sequrityBar.style.backgroundColor = "#FFFF00";
+    }
+    if (passValue.length >= 8 && rating < 3) {
+      sequrityBar.style.width = "50%";
+      sequrityBar.style.backgroundColor = "#FFFF00";
+    }
+    if (passValue.length >= 8 && rating > 3) {
+      sequrityBar.style.width = "50%";
+      sequrityBar.style.backgroundColor = "#FFFF00";
+    }
+    if (passValue.length >= 8 && rating >= 3) {
+      sequrityBar.style.width = "100%";
+      sequrityBar.style.backgroundColor = "#32CD32";
+    }
+    if (passValue.length >= 6 && rating == 4) {
+      sequrityBar.style.width = "100%";
+      sequrityBar.style.backgroundColor = "#32CD32";
+    }
+  }
+});
+
+const COLOR = {
+  1: "#A52A2A",
+  2: "#ADFF2F",
+  3: "#008080",
+  4: "#008000",
+  5: "#EE82EE",
+  6: "#1E90FF",
+  7: "#FF0000",
+  8: "#FF69B4	",
+  9: "#EEE8AA",
+  10: "#000000",
+  11: "#FFFF00",
+  12: "#A9A9A9",
+  13: "#FFE4E1",
+  14: "#FFA500",
+  15: "#0000FF",
+  16: "#FF1493",
+};
+let number;
+const randomNumberGenerator = (max, min) => {
+  const lower = Math.ceil(Math.min(Math.abs(max), Math.abs(min)));
+  const upper = Math.floor(Math.max(Math.abs(max), Math.abs(min)));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  number = Math.floor(result);
+  return number;
+};
+
+const table = document.querySelector("table");
+table.addEventListener("click", (evt) => {
+  if (evt.target.tagName === "TD") {
+    randomNumberGenerator(1, 12);
+    let ppp = Object.entries(COLOR).find(
+      ([key, value]) => Number(key) === number
+    )[1];
+    evt.target.style.backgroundColor = ppp;
+    console.log(evt.target);
+    console.log(ppp);
+  }
+});
+
+let card = document.querySelector('.card-input');
+let cardCode=0;
+  card.addEventListener('keyup', ()=>{
+    if(cardCode == 4) {
+      cardCode=0;
+      card.value+=" ";
+  }
+    cardCode++
+    console.log(card.value)
   })
+
+
+
+

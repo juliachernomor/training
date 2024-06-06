@@ -496,3 +496,16 @@ a {
   transition: 1s;
   /* background-color: #3e26266f; */
 }
+
+table {
+  border-collapse: collapse;
+  border: 1px solid grey;
+}
+
+th {
+  border: 1px solid grey;
+}
+
+td {
+  border: 1px solid grey;
+}
