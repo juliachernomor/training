@@ -3168,7 +3168,144 @@ preloadImages('.content__img-inner').then(() => {
   init();
 });
 
+const seasons =['лето','осень','зима','весна','дождь']
+const getClothes=(season)=>{
+  switch(season) {
+    case 'осень':
+      return 'зонт';
+    case 'зима':
+      return 'варежки';
+    case 'лето':
+      return 'майку';
+    case 'весна':
+      return 'плащ';
+      default:
+        throw new error(`Неизвестное время года: ${season}`)
+  }
+}
+const question = document.querySelector('.question');
+seasons.forEach((season)=>{
+  question.insertAdjacentHTML('beforeend',` -Что надеть, если сейчас ${season}?<br>`);
+  try{
+    question.insertAdjacentHTML('beforeend', `- ${getClothes(season)}<br>`)
+  }
+  catch (error) {
+    question.insertAdjacentHTML('beforeend', `- Непонятно <br>`)
+  }
+  })
 
+  question.insertAdjacentHTML('beforeend',` -А что в муссон?<br>`);
+  try {question.insertAdjacentHTML('beforeend',` - ${getClothes('Муссон')}<br>`);}
+  catch (error) {question.insertAdjacentHTML('beforeend', `- Непонятно <br>`)}
 
+const names=['john','alice','georg','','xandr'];
+function getName(name){
+  if(!name){
+    throw new Error ('имя неизвестно')
+  }
+  return `Привет, меня зовут ${name}`
+}
 
+names.forEach((name)=>{
+  try{
+    console.log(getName(name))
+  }
+  catch(error) {
+    console.log('введите имя ')
+  }
+})
 
+function getCons(){
+  return console.log("hhhg")
+}
+// console.log(typeof(getCons)) // объект Function
+//передаваем func в др func и  возвращаем в виде результата выполнения
+console.log(getCons())//hhhg 
+//передавать func в др func в виде параметра 
+console.log(getCons)//ƒ getCons(){return console.log("hhhg")}
+
+function foo(){
+  console.log('gjfhkdf;hj;g')
+}
+const runIt = function(fn) {
+  return fn();
+}
+console.log(runIt(foo))
+
+function makePie(title, callback) {
+  console.log(`приступаем к производству пирога ${title}`);
+  setTimeout(callback, 5000);
+}
+function readBook(){
+  console.log('читаем во время выпечки');
+}
+const eatPie =function() {
+  console.log('пирог готов- приступаем к чаепитию')
+}
+makePie('Черничный', eatPie)
+readBook()
+
+const passexam=false;
+const promise = new Promise((resolve, reject)=>{
+  setTimeout(()=>{passexam?resolve('есть  100$'):reject('нет 100$')}, 5000)
+})
+promise.then(value=>{
+  console.log(promise)
+  console.log(value)
+}).catch(error=>{
+  console.log(promise)
+  console.log(error)
+})
+
+const pr = new Promise((resolve)=>{
+  setTimeout(()=>resolve(2),3000)
+})
+pr.then(value=>{
+  console.log(value)//2
+  return new Promise((resolve)=>{
+      setTimeout(()=>resolve(2*value),3000)
+  })
+}).then(value=>{
+  console.log(value)//4
+  return new Promise((resolve)=>{
+    setTimeout(()=>resolve(2*value),3000)
+})
+}).then(value=>{
+  console.log(value)//8
+  return new Promise((resolve)=>{
+    setTimeout(()=>resolve(2*value),3000)
+})
+})
+
+//получение информации с сервера GET
+fetch('http://jsonplaceholder.typicode.com/posts')
+.then((response)=>{
+	if(response.ok){
+    console.log(response)
+		return response;
+  }
+	throw new Error (`${response.status} - ${response.statusText}`)
+})
+.then((response)=> response.json())
+.then((posts)=>console.log(posts))
+.catch((error)=>console.log(error))
+//отправка информации на сервер POST
+
+const post={
+  id:1,
+  userId:31377,
+  title:'jgggj',
+  body:'fgkghg'
+}
+
+fetch('http://jsonplaceholder.typicode.com/posts',
+  {
+    method: 'POST',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    body: JSON.stringify(post)//превращаем объект post в json
+  }
+)
+.then((response)=> response.json())
+.then((json)=>console.log(json))
