@@ -12,73 +12,73 @@
 
 <body>
     <main>
-        <div id="welcome">Акробат</div>
+        <div class = "lang" id="welcome">Акробат</div>
         <div id="test">
             <form class="form" action="https://echo.htmlacademy.ru" method="post">
                 <!-- <input id="test1"> -->
                 <p id="test2"></p>
                 <textarea id="test3" name="test3" minlength="5" maxlength="300" autofocus></textarea>
-                <span class="text-counter">Использовано <output class="char-counter">0</output>/300 символов
+                <span class="text-counter lang">Использовано <output class="char-counter">0</output>/300 символов
                 </span>
-                <button class="textarea-button" type="submit">Отправить</button>
-                <a href="#">При прослушивании данный элемент будет <span data-tooltip="Hello blue!">синим</span>.</a>
+                <button class="textarea-button lang" type="submit">Отправить</button>
+                <a class = "lang" href="#">При прослушивании данный элемент будет <span data-tooltip="Hello blue!">синим</span>.</a>
 
 
-                <a href="#"> a этот - <span data-tooltip="Hello orange!">оранжевый</span></a>
+                <a class = "lang" href="#"> a этот - <span data-tooltip="Hello orange!">оранжевый</span></a>
                 <input type="checkbox" name="someCheckbox" value="1" checked>
                 <input type="checkbox" name="someCheckbox" value="2">
                 <div>
-                    <label for="dayscount">Количество дней: <output id="daysoutput" name="daysoutput"></output></label>
+                    <label class = "lang" for="dayscount">Количество дней: <output id="daysoutput" name="daysoutput"></output></label>
                     <input type="range" id="dayscount" name="dayscount" min="1" max="14" step="1">
                 </div>
                 <input type="color">
                 <select name="variants">
                     <optgroup label="Группа1">
-                        <option value="1">вариант 1</option>
-                        <option value="2">вариант 2</option>
+                        <option class = "lang" value="1">вариант 1</option>
+                        <option class = "lang" value="2">вариант 2</option>
                     </optgroup>
                     <optgroup label="Группа2">
-                        <option value="3">вариант 3</option>
-                        <option value="4">вариант 4</option>
-                        <option value="5">вариант 5</option>
+                        <option class = "lang" value="3">вариант 3</option>
+                        <option class = "lang" value="4">вариант 4</option>
+                        <option class = "lang" value="5">вариант 5</option>
                     </optgroup>
                 </select>
                 <fieldset class="ppppp">
-                    <legend>Каталог товаров</legend>
+                    <legend class = "lang">Каталог товаров</legend>
                     <ul class="fieldset-radio">
                         <li class="li-radio discount-100">
                             <label class="radiolabel">
                                 <input class="radio visually-hidden " name="radios" type="radio" value="Дразнилки">
                                 <span class="radio__control-mark"></span>
-                                <span class="radio__control-label">Дразнилки</span>
+                                <span class="radio__control-label lang">Дразнилки</span>
                             </label>
                         </li>
                         <li class="li-radio">
                             <label class="radiolabel">
                                 <input class="radio visually-hidden" name="radios" type="radio" value="Шуршалки">
                                 <span class="radio__control-mark"></span>
-                                <span class="radio__control-label">Шуршалки</span>
+                                <span class="radio__control-label lang">Шуршалки</span>
                             </label>
                         </li>
                         <li class="li-radio">
                             <label class="radiolabel">
                                 <input class="radio visually-hidden" name="radios" type="radio" value="Пищалки">
                                 <span class="radio__control-mark"></span>
-                                <span class="radio__control-label">Пищалки</span>
+                                <span class="radio__control-label lang">Пищалки</span>
                             </label>
                         </li>
                         <li class="li-radio discount-100">
                             <label class="radiolabel">
                                 <input class="radio visually-hidden" name="radios" type="radio" value="Мышки">
                                 <span class="radio__control-mark"></span>
-                                <span class="radio__control-label">Мышки</span>
+                                <span class="radio__control-label lang">Мышки</span>
                             </label>
                         </li>
                         <li class="li-radio">
                             <label class="radiolabel">
                                 <input class="radio visually-hidden" name="radios" type="radio" value="Мячики">
                                 <span class="radio__control-mark"></span>
-                                <span class="radio__control-label">Мячики</span>
+                                <span class="radio__control-label lang">Мячики</span>
                             </label>
                         </li>
                     </ul>
@@ -86,7 +86,7 @@
                         <label class="checkboxlabel">
                             <input class="visually-hidden checkboxw" type="checkbox" name="yes">
                             <span class="checkbox__control-mark"></span>
-                            <span class="checkbox__control-label">Только в наличии</span>
+                            <span class="checkbox__control-label lang">Только в наличии</span>
                         </label>
                         <p>Выбрана категория:<span id="selected-category"></span></p>
                     </div>
@@ -295,6 +295,7 @@
         </div>
 
         <div class="question"></div>
+        <div class="move-something"><div class="move-something-container"></div></div>
 
         <template id="pool-template">
             <div class="div-pool">

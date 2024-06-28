@@ -858,4 +858,44 @@ div .frame__links {
 	opacity: 0;
 }
 
+.move-something{
+  position: relative;
+  border: 5px;
+  background-image: linear-gradient(#000000 1.1px,transparent 1.1px),linear-gradient(to right,#000000 1.1px,#ffffff 1.1px);
+  background-size: 22px 22px;
+  width: 800px;
+  margin: 0 auto 30px auto;
+  min-height: 397px;
+}
+
+.move-something-container {
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: 50px;
+  position: absolute;
+  animation:
+    x calc(770 / 90 * 1s) linear infinite alternate,
+    y calc(347 / 90 * 1s) linear infinite alternate;
+}
+
+@keyframes x {
+  from { left: 0; }
+  to { left: calc(100% - 30px); }
+ }
+ 
+ @keyframes y {
+  from { top: 0; }
+  to { top: calc(100% - 50px); }
+ }
+
+.move-something-container:before {
+  content:"";
+  background-image: url("images/balloon.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 30px;
+  height: 50px;
+}
 
